@@ -1,1 +1,1 @@
-# Nix Configuration
+# :snowflake: Nix Configuration
