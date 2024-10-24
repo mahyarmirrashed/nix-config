@@ -41,3 +41,11 @@ Eventually, our Nix repository will look like this. All in due time.
 ├── flake.lock
 └── README.md
 ```
+
+## Naming Convention
+
+Each set of devices are named according to a different Pantheon.
+
+1. **Linux Compute:** Greek mythology;
+2. **Linux Edge:** Roman mythology; and
+3. **Darwin/MacOS:** Norse mythology.
