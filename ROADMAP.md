@@ -46,6 +46,7 @@ Eventually, our Nix repository will look like this. All in due time.
 
 Each set of devices are named according to a different Pantheon.
 
-1. **Linux Compute:** Greek mythology;
-2. **Linux Edge:** Roman mythology; and
-3. **Darwin/MacOS:** Norse mythology.
+1. **Linux Workstations**: Greek mythology;
+2. **Linux Servers**: Greek letters;
+3. **Linux Edge**: Roman mythology; and
+4. **Darwin/MacOS**: Norse mythology.
