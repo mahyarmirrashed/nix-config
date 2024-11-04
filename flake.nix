@@ -19,8 +19,8 @@
       };
     };
   in {
-    nixosConfigurations =
-      builtins.listToAttrs [
-      ];
+    nixosConfigurations = builtins.listToAttrs [
+      (mkHost "workstation" "cronos")
+    ];
   };
 }
