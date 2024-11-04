@@ -17,26 +17,26 @@
                 type = "filesystem";
                 format = "vfat";
                 mountpoint = "/boot";
-                mountOptions = ["umask=0777"];
+                mountOptions = [ "umask=0777" ];
               };
             };
             root = {
               size = "100%";
               content = {
                 type = "btrfs";
-                extraArgs = ["-f"]; # override existing partitions
+                extraArgs = [ "-f" ]; # override existing partitions
                 subvolumes = {
                   "/rootfs" = {
                     mountpoint = "/";
                   };
                   "/home" = {
                     mountpoint = "/home";
-                    mountOptions = ["compress=zstd"];
+                    mountOptions = [ "compress=zstd" ];
                   };
-                  "/home/user" = {};
+                  "/home/user" = { };
                   "/nix" = {
                     mountpoint = "/nix";
-                    mountOptions = ["compress=zstd" "noatime"];
+                    mountOptions = [ "compress=zstd" "noatime" ];
                   };
                   "/swap" = {
                     mountpoint = "/.swapvol";
