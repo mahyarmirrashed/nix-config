@@ -7,24 +7,19 @@
 
   outputs = { nixpkgs, ... }:
     let
-      mkHost = role: name:
-        let
-          hostConfig = import ./hosts/${role}/${name}/default.nix;
-          system = hostConfig.system or throw "System attribute missing for ${name} (${role}).";
-        in
-        {
-          inherit name;
-          value = nixpkgs.lib.nixosSystem {
-            inherit system;
-            modules = [
-              ./hosts/${role}/${name}/default.nix
-            ];
-          };
+      mkHost = system: role: name: {
+        inherit name;
+        value = nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = [
+            ./hosts/${role}/${name}/default.nix
+          ];
         };
+      };
     in
     {
       nixosConfigurations = builtins.listToAttrs [
-        (mkHost "workstation" "cronos")
+        (mkHost "x86_64-linux" "workstation" "cronos")
       ];
     };
 }
