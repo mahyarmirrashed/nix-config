@@ -19,7 +19,10 @@
           modules = [
             home-manager.nixosModules.home-manager
 
-            ./hosts/${role}/${name}/default.nix
+            (import ./hosts/${role}/${name}/default.nix {
+              inherit name system;
+              pkgs = nixpkgs.legacyPackages.${system};
+            })
           ];
         };
       };
