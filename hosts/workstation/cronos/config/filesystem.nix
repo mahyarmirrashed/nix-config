@@ -1,7 +1,7 @@
 { ... }: {
   fileSystems = {
     "/" = {
-      device = "/dev/disk/by-uuid/21ac97ce-9fe1-4710-8b6e-1bae0f5dae02";
+      device = "/dev/disk/by-uuid/f180281f-783c-40c3-9da4-3cb7a61517c3";
       fsType = "btrfs";
       options = [ "subvol=rootfs" ];
     };
@@ -13,19 +13,19 @@
     };
 
     "/.swapvol" = {
-      device = "/dev/disk/by-uuid/21ac97ce-9fe1-4710-8b6e-1bae0f5dae02";
+      device = "/dev/disk/by-uuid/f180281f-783c-40c3-9da4-3cb7a61517c3";
       fsType = "btrfs";
       options = [ "subvol=swap" ];
     };
 
     "/home" = {
-      device = "/dev/disk/by-uuid/21ac97ce-9fe1-4710-8b6e-1bae0f5dae02";
+      device = "/dev/disk/by-uuid/f180281f-783c-40c3-9da4-3cb7a61517c3";
       fsType = "btrfs";
       options = [ "subvol=home" ];
     };
 
     "/nix" = {
-      device = "/dev/disk/by-uuid/21ac97ce-9fe1-4710-8b6e-1bae0f5dae02";
+      device = "/dev/disk/by-uuid/f180281f-783c-40c3-9da4-3cb7a61517c3";
       fsType = "btrfs";
       options = [ "subvol=nix" ];
     };
