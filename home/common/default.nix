@@ -1,7 +1,0 @@
-{ ... }: {
-  imports = [
-    ./config
-    ./gui
-    ./tui
-  ];
-}
