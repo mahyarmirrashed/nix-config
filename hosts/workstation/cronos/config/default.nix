@@ -1,4 +1,5 @@
-{ modulesPath, ... }: {
+{ modulesPath, ... }:
+{
   imports = [
     ./audiovisual.nix
     ./boot.nix

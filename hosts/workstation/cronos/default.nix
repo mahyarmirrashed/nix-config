@@ -1,7 +1,6 @@
-{ pkgs, ... }: {
-  imports = [
-    ./config
-  ];
+{ pkgs, ... }:
+{
+  imports = [ ./config ];
 
   environment.systemPackages = [
     pkgs.bashInteractive
@@ -19,7 +18,10 @@
       isSystemUser = true;
 
       group = "users";
-      extraGroups = [ "wheel" "docker" ];
+      extraGroups = [
+        "wheel"
+        "docker"
+      ];
     };
   };
 

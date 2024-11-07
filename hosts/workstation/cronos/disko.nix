@@ -36,7 +36,10 @@
                   "/home/user" = { };
                   "/nix" = {
                     mountpoint = "/nix";
-                    mountOptions = [ "compress=zstd" "noatime" ];
+                    mountOptions = [
+                      "compress=zstd"
+                      "noatime"
+                    ];
                   };
                   "/swap" = {
                     mountpoint = "/.swapvol";

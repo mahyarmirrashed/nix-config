@@ -7,10 +7,7 @@
   };
 
   outputs =
-    { nixpkgs
-    , home-manager
-    , ...
-    }:
+    { nixpkgs, home-manager, ... }:
     let
       mkHost = system: role: name: {
         inherit name;
@@ -28,8 +25,6 @@
       };
     in
     {
-      nixosConfigurations = builtins.listToAttrs [
-        (mkHost "x86_64-linux" "workstation" "cronos")
-      ];
+      nixosConfigurations = builtins.listToAttrs [ (mkHost "x86_64-linux" "workstation" "cronos") ];
     };
 }
