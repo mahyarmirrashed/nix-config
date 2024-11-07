@@ -37,8 +37,7 @@
 
   swapDevices = [
     {
-      file = "/.swapvol/swapfile";
-      size = 8 * 1014;
+      device = "/.swapvol/swapfile";
     }
   ];
 }
