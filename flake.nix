@@ -4,7 +4,7 @@
   inputs.nixpkgs.url = "nixpkgs/nixos-24.05";
 
   outputs =
-    { self, nixpkgs, ... }:
+    { nixpkgs, ... }:
     let
       lib = nixpkgs.lib;
 
@@ -12,7 +12,7 @@
         dirContents: builtins.attrNames (lib.filterAttrs (_n: v: v == "directory") dirContents);
 
       # Define the top-level hosts folder path (where all host configurations live)
-      hostsRootDir = "${self}/hosts";
+      hostsRootDir = ./hosts;
 
       # Retrieve the role directories (e.g., "./hosts/workstations", "./hosts/servers")
       getRolesInHostDir =
