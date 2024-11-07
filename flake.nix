@@ -1,30 +1,58 @@
 {
   description = "Mahyar's Nix configurations.";
 
-  inputs = {
-    nixpkgs.url = "nixpkgs/nixos-24.05";
-    home-manager.url = "github:nix-community/home-manager";
-  };
+  inputs.nixpkgs.url = "nixpkgs/nixos-24.05";
 
   outputs =
-    { nixpkgs, home-manager, ... }:
+    { self, nixpkgs, ... }:
     let
-      mkHost = system: role: name: {
-        inherit name;
-        value = nixpkgs.lib.nixosSystem {
-          inherit system;
-          modules = [
-            home-manager.nixosModules.home-manager
+      lib = nixpkgs.lib;
 
-            (import ./hosts/${role}/${name}/default.nix {
-              inherit name system;
-              pkgs = nixpkgs.legacyPackages.${system};
-            })
-          ];
-        };
-      };
+      filterForDirectories =
+        dirContents: builtins.attrNames (lib.filterAttrs (_n: v: v == "directory") dirContents);
+
+      # Define the top-level hosts folder path (where all host configurations live)
+      hostsRootDir = "${self}/hosts";
+
+      # Retrieve the role directories (e.g., "./hosts/workstations", "./hosts/servers")
+      getRolesInHostDir =
+        hostsRootDir:
+        map (role: "${hostsRootDir}/${role}") (filterForDirectories (builtins.readDir hostsRootDir));
+
+      # Retrieve the host directories (e.g. "./hosts/workstations/cronos", "./hosts/servers/alpha")
+      getHostsInRoleDir =
+        roleDir: map (host: "${roleDir}/${host}") (filterForDirectories (builtins.readDir roleDir));
+
+      # Retrieve the system architecture from the host configuration.nix
+      getSystemType =
+        host:
+        if builtins.pathExists "${host}/configuration.nix" then
+          (import "${host}/configuration.nix").system
+        else
+          lib.asserts.fail "Error: ${host} is missing the configuration.nix file.";
+
+      # Compute all hosts
+      hosts = builtins.concatMap getHostsInRoleDir (getRolesInHostDir hostsRootDir);
+
+      nixosHosts = builtins.filter (host: builtins.pathExists "${host}/system.nix") hosts;
     in
     {
-      nixosConfigurations = builtins.listToAttrs [ (mkHost "x86_64-linux" "workstation" "cronos") ];
+      nixosConfigurations = builtins.listToAttrs (
+        map (
+          host:
+          let
+            systemType = getSystemType host;
+          in
+          {
+            name = builtins.baseNameOf host;
+            value = nixpkgs.lib.nixosSystem {
+              system = systemType;
+              modules = [
+                (import "${host}/system.nix")
+              ];
+            };
+          }
+        ) nixosHosts
+      );
     };
 }
