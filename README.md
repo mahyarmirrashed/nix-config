@@ -10,3 +10,7 @@ Devices are named according to their Pantheon.
 2. **Linux Servers**: Greek letters;
 3. **Linux Edge**: Roman mythology; and
 4. **Darwin/MacOS**: Norse mythology.
+
+## Development
+
+To check changes during development, `nix flake check` can be used.
