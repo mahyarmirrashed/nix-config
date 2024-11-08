@@ -13,29 +13,23 @@
   outputs =
     { nixpkgs, disko, ... }:
     let
-      nixosHosts = [
-        {
-          path = ./hosts/workstations/cronos;
-          system = "x86_64-linux";
-        }
-        {
-          path = ./hosts/workstations/hyperion;
-          system = "x86_64-linux";
-        }
-      ];
+      mkHost = path: system: {
+        name = builtins.baseNameOf path;
+        value = nixpkgs.lib.nixosSystem {
+          system = system;
+          modules = [
+            # Path to host's entrypoint
+            ./hosts/${path}
+            # Disko manages disk configuration
+            disko.nixosModules.disko
+          ];
+        };
+      };
     in
     {
-      nixosConfigurations = builtins.listToAttrs (
-        map (host: {
-          name = builtins.baseNameOf host.path;
-          value = nixpkgs.lib.nixosSystem {
-            system = host.system;
-            modules = [
-              host.path
-              disko.nixosModules.disko
-            ];
-          };
-        }) nixosHosts
-      );
+      nixosConfigurations = builtins.listToAttrs [
+        (mkHost "workstations/cronos" "x86_64-linux")
+        (mkHost "workstations/hyperion" "x86_64-linux")
+      ];
     };
 }
