@@ -18,6 +18,10 @@
           path = ./hosts/workstations/cronos;
           system = "x86_64-linux";
         }
+        {
+          path = ./hosts/workstations/hyperion;
+          system = "x86_64-linux";
+        }
       ];
     in
     {
