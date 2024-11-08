@@ -6,8 +6,6 @@
   imports = [
     ./disk-configuration.nix
     ./hardware-configuration.nix
-
-    pkgs.nixosModules.disko
   ];
 
   boot.loader.systemd-boot.enable = true;
