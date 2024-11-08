@@ -33,6 +33,7 @@
     in
     {
       packages = forEachSystem (system: import ./pkgs { pkgs = nixpkgs.legacyPackages.${system}; });
+      formatter = forEachSystem (system: nixpkgs.legacyPackages.${system}.nixfmt-rfc-style);
 
       nixosConfigurations = builtins.listToAttrs [
         (mkHost "workstations/cronos" "x86_64-linux")
