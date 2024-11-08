@@ -11,6 +11,13 @@
   outputs =
     { nixpkgs, disko, ... }:
     let
+      supportedSystems = [
+        "aarch64-darwin"
+        "aarch64-linux"
+        "x86_64-linux"
+      ];
+      forEachSystem = nixpkgs.lib.genAttrs supportedSystems;
+
       mkHost = path: system: {
         name = builtins.baseNameOf path;
         value = nixpkgs.lib.nixosSystem {
