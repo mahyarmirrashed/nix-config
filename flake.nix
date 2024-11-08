@@ -32,6 +32,8 @@
       };
     in
     {
+      packages = forEachSystem (system: import ./pkgs { pkgs = nixpkgs.legacyPackages.${system}; });
+
       nixosConfigurations = builtins.listToAttrs [
         (mkHost "workstations/cronos" "x86_64-linux")
         (mkHost "workstations/hyperion" "x86_64-linux")
