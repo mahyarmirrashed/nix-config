@@ -23,10 +23,11 @@
         value = nixpkgs.lib.nixosSystem {
           system = system;
           modules = [
-            # Path to host's entrypoint
+            # Host-specific (including disk) configuration
             ./hosts/${path}
-            # Disko manages disk configuration
             disko.nixosModules.disko
+            # NixOS configuration
+            ./nixosModules
           ];
         };
       };

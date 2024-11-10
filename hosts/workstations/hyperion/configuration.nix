@@ -3,8 +3,6 @@
   imports = [
     ./disk-configuration.nix
     ./hardware-configuration.nix
-
-    ../../../nixosModules
   ];
 
   networking.hostName = "hyperion";
