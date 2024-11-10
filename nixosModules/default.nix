@@ -1,0 +1,10 @@
+{
+  ...
+}:
+{
+  imports = [
+    ./packages
+
+    ./common.nix
+  ];
+}
