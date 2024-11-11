@@ -1,6 +1,6 @@
 { ... }:
 {
   imports = [
-    ./users
+    ./mahyar.nix
   ];
 }
