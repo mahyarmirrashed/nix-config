@@ -1,5 +1,5 @@
 { pkgs, ... }:
 {
-  lib.countTrue = pkgs.lib.count (x: x);
+  lib.lists = import ./lists.nix { inherit pkgs; };
   lib.strings = import ./strings.nix { inherit pkgs; };
 }
