@@ -1,29 +1,28 @@
 {
   config,
   lib,
-  pkgs,
+  custom,
   ...
 }:
 let
-  cfg = config.nixosModules.desktop.loginManager;
+  cfg = config.nixosModules.desktop.loginManager.greetd;
 
-  fetchGreeter = path: import path { inherit config lib pkgs; };
-
-  greeters = {
-    agreety = fetchGreeter ./greeters/agreety.nix;
-    tuigreet = fetchGreeter ./greeters/tuigreet.nix;
-  };
-
-  greeter = lib.getAttrFromPath [ cfg.greetd.greeter ] greeters;
+  enabledCount = custom.lib.countTrue [
+    cfg.agreety.enable
+    cfg.tuigreet.enable
+  ];
 in
 {
-  options.nixosModules.desktop.loginManager.greetd.greeter = lib.mkOption {
-    type = lib.types.enum (builtins.attrNames greeters);
-    description = "Select the greeter to use.";
-    default = "agreety";
+  imports = [
+    ./greeters/agreety.nix
+    ./greeters/tuigreet.nix
+  ];
+
+  options.nixosModules.desktop.loginManager.greetd = {
+    enable = lib.mkEnableOption "greetd";
   };
 
-  config = lib.mkIf (cfg.selected == "greetd") {
+  config = lib.mkIf cfg.enable {
     services.greetd.enable = true;
     # Parsed as a TOML file
     # See: https://man.archlinux.org/man/greetd.5.en
@@ -32,7 +31,7 @@ in
         vt = 1;
       };
       default_session = {
-        command = greeter.command;
+        # command attribute is populated by each individual greeter
         user = "greeter";
       };
     };
@@ -41,5 +40,16 @@ in
       isSystemUser = true;
       description = "User for greetd.";
     };
+
+    assertions = [
+      {
+        assertion = enabledCount > 0;
+        message = "No greeter is enabled for greetd.";
+      }
+      {
+        assertion = enabledCount < 2;
+        message = "More than one greeter is enabled for greetd.";
+      }
+    ];
   };
 }
