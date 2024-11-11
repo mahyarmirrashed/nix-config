@@ -27,14 +27,12 @@ in
       };
       default_session = {
         command = ''
-          ${lib.meta.getExe pkgs.greetd.greetd}
+          ${lib.meta.getExe' pkgs.greetd.greetd "agreety"}
           --cmd ${lib.meta.getExe pkgs.bashInteractive}
         '';
         user = "greeter";
       };
     };
-
-    environment.systemPackages = with pkgs; [ greetd.greetd ];
 
     users.users.greeter = {
       isSystemUser = true;
