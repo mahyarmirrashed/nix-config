@@ -31,6 +31,9 @@
         home-manager.useGlobalPkgs = true;
       };
 
+      # Use custom library functions
+      custom = import ./lib { pkgs = nixpkgs; };
+
       mkHost = path: system: {
         name = builtins.baseNameOf path;
         value = nixpkgs.lib.nixosSystem {
@@ -46,6 +49,9 @@
             home-manager.nixosModules.home-manager
             homeManagerSettings
           ];
+          specialArgs = {
+            inherit custom;
+          };
         };
       };
     in
@@ -58,6 +64,9 @@
         home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.${system};
           modules = [ ./homeManagerModules ];
+          specialArgs = {
+            inherit custom;
+          };
         }
       );
 
