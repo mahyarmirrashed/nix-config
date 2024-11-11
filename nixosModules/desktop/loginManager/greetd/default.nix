@@ -7,9 +7,11 @@
 let
   cfg = config.nixosModules.desktop.loginManager;
 
+  fetchGreeter = path: import path { inherit config lib pkgs; };
+
   greeters = {
-    agreety = import ./greeters/agreety.nix { inherit config lib pkgs; };
-    tuigreet = import ./greeters/tuigreet.nix { inherit config lib pkgs; };
+    agreety = fetchGreeter ./greeters/agreety.nix;
+    tuigreet = fetchGreeter ./greeters/tuigreet.nix;
   };
 
   greeter = lib.getAttrFromPath [ cfg.greetd.greeter ] greeters;
