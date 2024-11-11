@@ -2,7 +2,6 @@
   config,
   lib,
   pkgs,
-  custom,
   ...
 }:
 let
@@ -14,7 +13,9 @@ in
   config = lib.mkIf cfg.enable {
     services.greetd.settings.default_session.command = ''
       ${lib.meta.getExe pkgs.greetd.tuigreet} \
-      --greeting "Authenticate into ${custom.lib.strings.capitalize config.networking.hostName}" \
+      --greeting "Don't panic! This terminal knows where its towel is." \
+      --time \
+      --remember \
       --cmd ${lib.meta.getExe pkgs.bashInteractive}
     '';
   };
