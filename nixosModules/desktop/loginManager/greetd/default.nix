@@ -27,7 +27,7 @@ in
       };
       default_session = {
         command = ''
-          ${lib.meta.getExe pkgs.greetd.tuigreet}
+          ${lib.meta.getExe pkgs.greetd.greetd}
           --cmd ${lib.meta.getExe pkgs.bashInteractive}
         '';
         user = "greeter";
