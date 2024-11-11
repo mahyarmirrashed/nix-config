@@ -8,9 +8,7 @@ let
   cfg = config.nixosModules.desktop.windowManager.hyprland;
 in
 {
-  options.nixosModules.desktop.windowManager.hyprland = {
-    enable = lib.mkEnableOption "hyprland";
-  };
+  options.nixosModules.desktop.windowManager.hyprland.enable = lib.mkEnableOption "hyprland";
 
   config = lib.mkIf cfg.enable {
     programs.hyprland.enable = true;

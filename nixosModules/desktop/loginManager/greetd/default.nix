@@ -18,9 +18,7 @@ in
     ./greeters/tuigreet.nix
   ];
 
-  options.nixosModules.desktop.loginManager.greetd = {
-    enable = lib.mkEnableOption "greetd";
-  };
+  options.nixosModules.desktop.loginManager.greetd.enable = lib.mkEnableOption "greetd";
 
   config = lib.mkIf cfg.enable {
     services.greetd.enable = true;
