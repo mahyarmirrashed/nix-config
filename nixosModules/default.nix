@@ -3,8 +3,6 @@
 }:
 {
   imports = [
-    ./packages
-
     ./common.nix
   ];
 }
