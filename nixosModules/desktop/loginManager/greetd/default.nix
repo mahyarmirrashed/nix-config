@@ -8,8 +8,8 @@ let
   cfg = config.nixosModules.desktop.loginManager;
 
   greeters = {
-    agreety = import ./greeters/agreety.nix { inherit lib pkgs; };
-    tuigreet = import ./greeters/tuigreet.nix { inherit lib pkgs; };
+    agreety = import ./greeters/agreety.nix { inherit config lib pkgs; };
+    tuigreet = import ./greeters/tuigreet.nix { inherit config lib pkgs; };
   };
 
   greeter = lib.getAttrFromPath [ cfg.greetd.greeter ] greeters;
