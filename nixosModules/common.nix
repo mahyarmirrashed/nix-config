@@ -8,4 +8,6 @@
   time.timeZone = lib.mkDefault "America/Winnipeg";
 
   i18n.defaultLocale = lib.mkDefault "en_US.UTF-8";
+
+  nixpkgs.config.allowUnfree = true;
 }
