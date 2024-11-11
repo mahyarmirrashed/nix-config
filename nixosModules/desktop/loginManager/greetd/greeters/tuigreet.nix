@@ -13,7 +13,7 @@ in
   config = lib.mkIf cfg.enable {
     services.greetd.settings.default_session.command = ''
       ${lib.meta.getExe pkgs.greetd.tuigreet} \
-      --greeting "Don't panic! This terminal knows where its towel is." \
+      --greeting "This Machine Kills Facists!" \
       --time \
       --time-format "$(${lib.meta.getExe pkgs.ddate}) - %H:%M:%S" \
       --remember \
