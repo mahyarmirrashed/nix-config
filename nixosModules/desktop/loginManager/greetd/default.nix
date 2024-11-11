@@ -34,6 +34,8 @@ in
       };
     };
 
+    environment.systemPackages = with pkgs; [ greetd.greetd ];
+
     users.users.greeter = {
       isSystemUser = true;
       description = "User for greetd.";
