@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ lib, ... }:
 {
-  countTrue = pkgs.lib.count (x: x);
+  countTrue = lib.count (x: x);
 }
