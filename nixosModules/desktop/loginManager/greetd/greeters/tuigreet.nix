@@ -15,6 +15,7 @@ in
       ${lib.meta.getExe pkgs.greetd.tuigreet} \
       --greeting "Don't panic! This terminal knows where its towel is." \
       --time \
+      --time-format "$(${lib.meta.getExe pkgs.ddate}) - %H:%M:%S" \
       --remember \
       --cmd ${lib.meta.getExe pkgs.bashInteractive}
     '';
