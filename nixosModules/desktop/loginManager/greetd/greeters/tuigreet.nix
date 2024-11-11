@@ -2,10 +2,13 @@
   config,
   lib,
   pkgs,
+  custom,
   ...
 }:
 let
   cfg = config.nixosModules.desktop.loginManager.greetd.tuigreet;
+
+  windowManagerPath = custom.lib.utils.windowManager.getExePath config.nixosModules.desktop.windowManager;
 in
 {
   options.nixosModules.desktop.loginManager.greetd.tuigreet.enable = lib.mkEnableOption "tuigreet";
@@ -20,7 +23,7 @@ in
       --theme "text=white;time=yellow;border=magenta;prompt=lightgreen;input=white;action=blue;button=yellow;" \
       --asterisks \
       --window-padding 2 \
-      --cmd ${lib.meta.getExe pkgs.bashInteractive}
+      --cmd ${windowManagerPath}
     '';
   };
 }
