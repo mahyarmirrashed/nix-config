@@ -8,7 +8,7 @@
 let
   cfg = config.nixosModules.desktop.loginManager.greetd.tuigreet;
 
-  windowManagerPath = custom.lib.utils.windowManager.getExePath config.nixosModules.desktop.windowManager;
+  windowManagerPath = custom.utils.windowManager.getExePath config.nixosModules.desktop.windowManager;
 in
 {
   options.nixosModules.desktop.loginManager.greetd.tuigreet.enable = lib.mkEnableOption "tuigreet";

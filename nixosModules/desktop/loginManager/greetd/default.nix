@@ -7,7 +7,7 @@
 let
   cfg = config.nixosModules.desktop.loginManager.greetd;
 
-  enabledCount = custom.lib.lists.countTrue [
+  enabledCount = custom.lists.countTrue [
     cfg.agreety.enable
     cfg.tuigreet.enable
   ];
