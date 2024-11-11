@@ -6,13 +6,14 @@
 }:
 let
   cfg = config.nixosModules.desktop.loginManager;
+
+  greeters = {
+    agreety = import ./greeters/agreety.nix { inherit lib pkgs; };
+  };
 in
 {
   options.nixosModules.desktop.loginManager.greetd.greeter = lib.mkOption {
-    type = lib.types.enum [
-      "agreety"
-      "tuigreet"
-    ];
+    type = lib.types.enum (builtins.attrNames greeters);
     description = "Select the greeter to use.";
     default = "agreety";
   };
@@ -26,10 +27,7 @@ in
         vt = 1;
       };
       default_session = {
-        command = ''
-          ${lib.meta.getExe' pkgs.greetd.greetd "agreety"} \
-          --cmd ${lib.meta.getExe pkgs.bashInteractive}
-        '';
+        command = greeters.${cfg.greetd.greeter};
         user = "greeter";
       };
     };
