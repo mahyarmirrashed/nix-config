@@ -10,6 +10,8 @@ let
   greeters = {
     agreety = import ./greeters/agreety.nix { inherit lib pkgs; };
   };
+
+  greeter = lib.getAttrFromPath [ cfg.greetd.greeter ] greeters;
 in
 {
   options.nixosModules.desktop.loginManager.greetd.greeter = lib.mkOption {
@@ -27,7 +29,7 @@ in
         vt = 1;
       };
       default_session = {
-        command = greeters.${cfg.greetd.greeter};
+        command = greeter.command;
         user = "greeter";
       };
     };
