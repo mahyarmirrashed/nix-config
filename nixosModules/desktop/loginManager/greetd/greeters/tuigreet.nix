@@ -17,6 +17,7 @@ in
       --time \
       --time-format "$(${lib.meta.getExe pkgs.ddate}) - %H:%M:%S" \
       --remember \
+      --window-padding 2 \
       --cmd ${lib.meta.getExe pkgs.bashInteractive}
     '';
   };
