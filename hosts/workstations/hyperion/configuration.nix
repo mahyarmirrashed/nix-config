@@ -10,4 +10,5 @@
   system.stateVersion = "24.05";
 
   nixosModules.desktop.loginManager.selected = "greetd";
+  nixosModules.desktop.loginManager.greetd.greeter = "tuigreet";
 }
