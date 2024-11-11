@@ -14,3 +14,10 @@ Devices are named according to their Pantheon.
 ## Development
 
 To check changes during development, `nix flake check` can be used.
+
+### Custom Library
+
+All custom/reusable functions are located in [./lib](./lib). They are hoisted as
+`custom.<path>` thanks to [Haumea](https://github.com/nix-community/haumea).
+This means that a path like `./lib/utils/windowManager.nix` can be accessed via
+`custom.utils.windowManager` in the NixOS and Home Manager modules.
