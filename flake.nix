@@ -34,7 +34,7 @@
       mkHost = path: system: {
         name = builtins.baseNameOf path;
         value = nixpkgs.lib.nixosSystem {
-          system = system;
+          inherit system;
           modules = [
             # Host-specific (including disk) configuration
             ./hosts/${path}
