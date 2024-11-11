@@ -8,4 +8,6 @@
   networking.hostName = "hyperion";
 
   system.stateVersion = "24.05";
+
+  nixosModules.desktop.loginManager.selected = "greetd";
 }
