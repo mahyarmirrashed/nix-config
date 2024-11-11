@@ -9,6 +9,9 @@
 
     home-manager.url = "github:nix-community/home-manager/release-24.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+    haumea.url = "github:nix-community/haumea/v0.2.2";
+    haumea.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
@@ -16,6 +19,7 @@
       nixpkgs,
       disko,
       home-manager,
+      haumea,
       ...
     }:
     let
@@ -31,8 +35,15 @@
         home-manager.useGlobalPkgs = true;
       };
 
-      # Use custom library functions
-      custom = import ./lib { pkgs = nixpkgs; };
+      custom =
+        system:
+        haumea.lib.load {
+          src = ./lib;
+          inputs = {
+            lib = nixpkgs.lib;
+            pkgs = nixpkgs.legacyPackages.${system};
+          };
+        };
 
       mkHost = path: system: {
         name = builtins.baseNameOf path;
@@ -50,7 +61,7 @@
             homeManagerSettings
           ];
           specialArgs = {
-            inherit custom;
+            custom = custom system;
           };
         };
       };
@@ -65,7 +76,7 @@
           pkgs = nixpkgs.legacyPackages.${system};
           modules = [ ./homeManagerModules ];
           specialArgs = {
-            inherit custom;
+            custom = custom system;
           };
         }
       );
