@@ -25,16 +25,13 @@ in
       terminal = {
         vt = 1;
       };
-      default_session =
-        {
-          command = ''
-            ${lib.meta.getExe pkgs.greetd.tuigreet}
-            --cmd ${lib.meta.getExe pkgs.bashInteractive}
-          '';
-        }
-        / {
-          user = "greeter";
-        };
+      default_session = {
+        command = ''
+          ${lib.meta.getExe pkgs.greetd.tuigreet}
+          --cmd ${lib.meta.getExe pkgs.bashInteractive}
+        '';
+        user = "greeter";
+      };
     };
 
     users.users.greeter = {
