@@ -22,7 +22,6 @@ in
 
   config = lib.mkIf cfg.enable {
     services.greetd.enable = true;
-    # Parsed as a TOML file
     # See: https://man.archlinux.org/man/greetd.5.en
     services.greetd.settings = {
       terminal = {
