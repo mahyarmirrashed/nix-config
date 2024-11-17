@@ -9,7 +9,7 @@
 
   system.stateVersion = "24.05";
 
-  nixosModules.desktop.loginManager.greetd.enable = true;
-  nixosModules.desktop.loginManager.greetd.tuigreet.enable = true;
-  nixosModules.desktop.windowManager.hyprland.enable = true;
+  modules.desktop.loginManager.greetd.enable = true;
+  modules.desktop.loginManager.greetd.tuigreet.enable = true;
+  modules.desktop.windowManager.hyprland.enable = true;
 }

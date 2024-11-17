@@ -5,7 +5,7 @@
   ...
 }:
 let
-  cfg = config.nixosModules.desktop.loginManager.greetd;
+  cfg = config.modules.desktop.loginManager.greetd;
 
   enabledCount = custom.lists.countTrue [
     cfg.agreety.enable
@@ -18,7 +18,7 @@ in
     ./greeters/tuigreet.nix
   ];
 
-  options.nixosModules.desktop.loginManager.greetd.enable = lib.mkEnableOption "greetd";
+  options.modules.desktop.loginManager.greetd.enable = lib.mkEnableOption "greetd";
 
   config = lib.mkIf cfg.enable {
     services.greetd.enable = true;

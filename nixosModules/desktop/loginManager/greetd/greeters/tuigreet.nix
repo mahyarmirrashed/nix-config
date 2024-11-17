@@ -6,12 +6,12 @@
   ...
 }:
 let
-  cfg = config.nixosModules.desktop.loginManager.greetd.tuigreet;
+  cfg = config.modules.desktop.loginManager.greetd.tuigreet;
 
-  windowManagerPath = custom.utils.windowManager.getExePath config.nixosModules.desktop.windowManager;
+  windowManagerPath = custom.utils.windowManager.getExePath config.modules.desktop.windowManager;
 in
 {
-  options.nixosModules.desktop.loginManager.greetd.tuigreet.enable = lib.mkEnableOption "tuigreet";
+  options.modules.desktop.loginManager.greetd.tuigreet.enable = lib.mkEnableOption "tuigreet";
 
   config = lib.mkIf cfg.enable {
     services.greetd.settings.default_session.command = ''

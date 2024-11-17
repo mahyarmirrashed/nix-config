@@ -5,10 +5,10 @@
   ...
 }:
 let
-  cfg = config.nixosModules.desktop.windowManager.hyprland;
+  cfg = config.modules.desktop.windowManager.hyprland;
 in
 {
-  options.nixosModules.desktop.windowManager.hyprland.enable = lib.mkEnableOption "hyprland";
+  options.modules.desktop.windowManager.hyprland.enable = lib.mkEnableOption "hyprland";
 
   config = lib.mkIf cfg.enable {
     programs.hyprland.enable = true;

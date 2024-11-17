@@ -6,12 +6,12 @@
   ...
 }:
 let
-  cfg = config.nixosModules.desktop.loginManager.greetd.agreety;
+  cfg = config.modules.desktop.loginManager.greetd.agreety;
 
-  windowManagerPath = custom.utils.windowManager.getExePath config.nixosModules.desktop.windowManager;
+  windowManagerPath = custom.utils.windowManager.getExePath config.modules.desktop.windowManager;
 in
 {
-  options.nixosModules.desktop.loginManager.greetd.agreety.enable = lib.mkEnableOption "agreety";
+  options.modules.desktop.loginManager.greetd.agreety.enable = lib.mkEnableOption "agreety";
 
   config = lib.mkIf cfg.enable {
     services.greetd.settings.default_session.command = ''
