@@ -9,5 +9,10 @@
 
   i18n.defaultLocale = lib.mkDefault "en_US.UTF-8";
 
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
+
   nixpkgs.config.allowUnfree = lib.mkDefault true;
 }
