@@ -30,11 +30,6 @@
       ];
       forEachSystem = nixpkgs.lib.genAttrs supportedSystems;
 
-      homeManagerSettings = {
-        home-manager.useUserPackages = true;
-        home-manager.useGlobalPkgs = true;
-      };
-
       custom =
         system:
         haumea.lib.load {
@@ -58,7 +53,6 @@
             # Home Manager configuration
             ./homeManagerModules
             home-manager.nixosModules.home-manager
-            homeManagerSettings
           ];
           specialArgs = {
             custom = custom system;

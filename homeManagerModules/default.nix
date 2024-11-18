@@ -1,14 +1,18 @@
 { pkgs, ... }:
 {
-  home-manager.users.mahyar = {
-    imports = [
-      ./desktop
-    ];
+  home-manager = {
+    useUserPackages = true;
+    useGlobalPkgs = true;
+    users.mahyar = {
+      imports = [
+        ./desktop
+      ];
 
-    home.packages = with pkgs; [
-      vim
-      git
-    ];
-    home.stateVersion = "24.05";
+      home.packages = with pkgs; [
+        vim
+        git
+      ];
+      home.stateVersion = "24.05";
+    };
   };
 }
