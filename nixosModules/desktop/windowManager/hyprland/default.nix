@@ -12,7 +12,6 @@ in
 
   config = lib.mkIf cfg.enable {
     programs.hyprland.enable = true;
-    programs.hyprlock.enable = true;
 
     environment.systemPackages = with pkgs; [ kitty ];
     environment.sessionVariables = {
