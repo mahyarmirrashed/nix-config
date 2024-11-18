@@ -12,7 +12,7 @@
 
   home-manager.users.mahyar = {
     home.packages = with pkgs; [
-      wezterm
+      alacritty
       kitty
     ];
   };
