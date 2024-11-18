@@ -1,13 +1,17 @@
-{ config, lib, ... }:
+{ lib, osConfig, ... }:
 let
-  cfg = config.modules.desktop.windowManager.hyprland;
+  cfg = osConfig.modules.desktop.windowManager.hyprland;
 in
 {
-  wayland.windowManager.hyprland.settings = lib.mkIf cfg.enable {
-    "$mod" = "SUPER";
+  wayland.windowManager.hyprland = lib.mkIf cfg.enable {
+    enable = true;
 
-    bindd = [
-      "$mod, K, Open terminal, exec, kitty"
-    ];
+    settings = {
+      "$mod" = "SUPER";
+
+      bindd = [
+        "$mod, K, Open terminal, exec, kitty"
+      ];
+    };
   };
 }
