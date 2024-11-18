@@ -9,6 +9,8 @@ in
     settings = {
       "$mod" = "SUPER";
 
+      exec-once = [ "hyprpaper" ];
+
       bindd = [
         "$mod, K, Open terminal, exec, kitty"
         "$mod, A, Open terminal, exec, alacritty"
