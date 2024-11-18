@@ -3,6 +3,7 @@
   home-manager = {
     useUserPackages = true;
     useGlobalPkgs = true;
+
     users.mahyar = {
       imports = [
         ./desktop
