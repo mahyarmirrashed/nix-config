@@ -3,6 +3,7 @@
   imports = [
     ./disk-configuration.nix
     ./hardware-configuration.nix
+    ./home.nix
   ];
 
   networking.hostName = "cronos";
