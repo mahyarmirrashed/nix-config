@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ lib, pkgs, ... }:
 {
   boot.loader.systemd-boot.enable = lib.mkDefault true;
   boot.loader.efi.canTouchEfiVariables = lib.mkDefault true;
@@ -15,4 +15,10 @@
   ];
 
   nixpkgs.config.allowUnfree = lib.mkDefault true;
+
+  environment.systemPackages = with pkgs; [
+    vim
+    git
+    tree
+  ];
 }
