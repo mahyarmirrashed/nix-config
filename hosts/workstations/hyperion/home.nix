@@ -12,5 +12,7 @@
 
   home-manager.users.mahyar = {
     modules.desktop.wallpaper.hyprpaper.enable = true;
+    modules.applications.terminals.alacritty.enable = true;
+    modules.applications.terminals.default = "alacritty";
   };
 }
