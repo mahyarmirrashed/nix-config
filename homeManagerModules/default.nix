@@ -11,6 +11,7 @@
 
     users = lib.genAttrs config.modules.users (_: {
       imports = [
+        ./applications
         ./desktop
       ];
 
