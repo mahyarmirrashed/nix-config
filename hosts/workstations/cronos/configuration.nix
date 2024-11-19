@@ -9,4 +9,6 @@
   networking.hostName = "cronos";
 
   system.stateVersion = "24.05";
+
+  modules.system.headless.enable = true;
 }
