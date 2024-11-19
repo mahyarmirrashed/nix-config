@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ ... }:
 {
   modules.users = [ "mahyar" ];
 
@@ -12,9 +12,5 @@
 
   home-manager.users.mahyar = {
     modules.desktop.wallpaper.hyprpaper.enable = true;
-
-    home.packages = with pkgs; [
-      alacritty
-    ];
   };
 }
