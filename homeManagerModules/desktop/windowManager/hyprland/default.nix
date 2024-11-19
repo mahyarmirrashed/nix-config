@@ -17,7 +17,6 @@ in
       };
 
       bindd = [
-        "$mod, K, Open terminal, exec, kitty"
         "$mod, A, Open terminal, exec, alacritty"
       ];
     };
