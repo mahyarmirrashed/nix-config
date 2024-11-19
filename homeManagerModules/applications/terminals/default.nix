@@ -1,4 +1,13 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  osConfig,
+  ...
+}:
+let
+  cfg = config.modules.applications.terminals.default;
+  headless = osConfig.modules.system.headless;
+in
 {
   imports = [
     ./alacritty
@@ -11,10 +20,14 @@
     description = "The default terminal emulator for the system.";
   };
 
-  config.assertions = [
+  config.assertions = lib.mkIf (!headless.enable) [
     {
-      assertion = config.modules.applications.terminals.default != null;
+      assertion = cfg != null;
       message = ''The "modules.applications.terminals.default" option must be defined.'';
+    }
+    {
+      assertion = config.modules.applications.terminals.${cfg}.enable;
+      message = "The default terminal must be enabled.";
     }
   ];
 }
