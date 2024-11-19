@@ -8,7 +8,7 @@ let
   cfg = config.modules.applications.terminals.alacritty;
 in
 {
-  options.modules.applications.terminals.alacritty = lib.mkEnableOption "alacritty";
+  options.modules.applications.terminals.alacritty.enable = lib.mkEnableOption "alacritty";
 
   config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [
