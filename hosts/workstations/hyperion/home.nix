@@ -14,5 +14,7 @@
     modules.desktop.wallpaper.hyprpaper.enable = true;
     modules.applications.terminals.alacritty.enable = true;
     modules.applications.terminals.default = "alacritty";
+    modules.applications.browsers.firefox.enable = true;
+    modules.applications.browsers.default = "firefox";
   };
 }
