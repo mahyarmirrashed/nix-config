@@ -6,7 +6,9 @@
 }:
 let
   cfg = osConfig.modules.desktop.windowManager.hyprland;
+
   terminal = config.modules.applications.terminals.default;
+  browser = config.modules.applications.browsers.default;
 in
 {
   wayland.windowManager.hyprland = lib.mkIf cfg.enable {
@@ -15,6 +17,7 @@ in
     settings = {
       "$mod" = "SUPER";
       "$terminal" = terminal;
+      "$browser" = browser;
 
       exec-once = [ "hyprpaper" ];
 
@@ -25,6 +28,7 @@ in
 
       bindd = [
         "$mod, T, Open terminal, exec, $terminal"
+        "$mod, E, Open browser, exec, $browser"
       ];
     };
   };
