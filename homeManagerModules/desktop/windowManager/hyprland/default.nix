@@ -27,7 +27,7 @@ in
       };
 
       bindd = [
-        "$mod, T, Open terminal, exec, $terminal"
+        "$mod, T&grave, Open terminal, exec, $terminal"
         "$mod, E, Open browser, exec, $browser"
       ];
     };
