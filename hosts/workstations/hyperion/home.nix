@@ -14,6 +14,7 @@
     modules.desktop.wallpaper.hyprpaper.enable = true;
     modules.applications.terminals.alacritty.enable = true;
     modules.applications.terminals.default = "alacritty";
+    modules.applications.monitoring.io.iotop-c.enable = true;
     modules.applications.monitoring.processes.btop.enable = true;
     modules.applications.monitoring.processes.htop.enable = true;
     modules.applications.monitoring.processes.default = "btop";
