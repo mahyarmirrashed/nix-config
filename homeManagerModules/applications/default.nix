@@ -2,6 +2,7 @@
 {
   imports = [
     ./browsers
+    ./monitoring
     ./terminals
   ];
 }
