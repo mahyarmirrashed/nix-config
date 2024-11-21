@@ -23,5 +23,9 @@ in
       assertion = cfg != null;
       message = ''The "modules.applications.monitoring.default" option must be defined.'';
     }
+    {
+      assertion = config.modules.applications.monitoring.${cfg}.enable;
+      message = "The default process monitoring tool must be enabled.";
+    }
   ];
 }
