@@ -12,7 +12,7 @@ in
     ./htop
   ];
 
-  options.modules.applications.browsers.default = lib.mkOption {
+  options.modules.applications.monitoring.default = lib.mkOption {
     type = lib.types.nullOr lib.types.str;
     default = null;
     description = "The default process monitoring tool for the system.";
