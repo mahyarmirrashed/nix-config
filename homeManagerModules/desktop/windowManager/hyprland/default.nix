@@ -21,6 +21,12 @@ in
 
       exec-once = [ "hyprpaper" ];
 
+      input = {
+        touchpad = {
+          natural_scroll = true;
+        };
+      };
+
       misc = {
         disable_hyprland_logo = true;
         disable_splash_rendering = true;
