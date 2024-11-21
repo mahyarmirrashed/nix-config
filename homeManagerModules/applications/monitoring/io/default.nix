@@ -1,7 +1,6 @@
 { ... }:
 {
   imports = [
-    ./io
-    ./processes
+    ./iotop-c
   ];
 }
