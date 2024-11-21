@@ -11,7 +11,7 @@
   };
 
   home-manager.users.mahyar = {
-    modules.applications.monitoring.htop.enable = true;
-    modules.applications.monitoring.default = "htop";
+    modules.applications.monitoring.processes.htop.enable = true;
+    modules.applications.monitoring.processes.default = "htop";
   };
 }
