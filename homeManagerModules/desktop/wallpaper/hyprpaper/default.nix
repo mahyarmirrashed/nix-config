@@ -15,6 +15,7 @@ in
 
       settings = {
         preload = [
+          "${../wallpapers/gruvbox/breeze.png}"
           "${../wallpapers/gruvbox/eden.png}"
           "${../wallpapers/gruvbox/rust.png}"
           "${../wallpapers/gruvbox/space.png}"
