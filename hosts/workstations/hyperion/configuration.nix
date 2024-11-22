@@ -13,4 +13,5 @@
   modules.desktop.loginManager.greetd.enable = true;
   modules.desktop.loginManager.greetd.tuigreet.enable = true;
   modules.desktop.windowManager.hyprland.enable = true;
+  modules.virtualisation.enable = true;
 }
