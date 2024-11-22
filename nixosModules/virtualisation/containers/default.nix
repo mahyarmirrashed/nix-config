@@ -20,6 +20,7 @@ in
       [
         podman-tui
         podman-compose
+        skopeo
       ]
       ++ lib.optionals (!headless) [ podman-desktop ];
   };
