@@ -6,5 +6,6 @@
 
     ./desktop
     ./users
+    ./virtualisation
   ];
 }
