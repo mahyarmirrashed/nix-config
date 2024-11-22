@@ -11,7 +11,6 @@ in
 {
   imports = [
     ./alacritty
-    ./wezterm
   ];
 
   options.modules.applications.terminals.default = lib.mkOption {
