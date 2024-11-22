@@ -22,6 +22,6 @@ in
         podman-compose
         skopeo
       ]
-      ++ lib.optionals (!headless) [ podman-desktop ];
+      ++ lib.optionals (!headless.enable) [ podman-desktop ];
   };
 }
