@@ -1,4 +1,4 @@
 { lib, ... }:
 {
-  options.modules.virtualisation = lib.mkEnableOption "virtualisation";
+  options.modules.virtualisation.enable = lib.mkEnableOption "virtualisation";
 }
