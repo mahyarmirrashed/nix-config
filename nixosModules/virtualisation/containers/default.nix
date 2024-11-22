@@ -20,6 +20,8 @@ in
       [
         podman-tui
         podman-compose
+
+        buildah
         skopeo
       ]
       ++ lib.optionals (!headless.enable) [ podman-desktop ];
