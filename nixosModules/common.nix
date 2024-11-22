@@ -2,6 +2,7 @@
 {
   boot.loader.systemd-boot.editor = false;
   boot.loader.systemd-boot.enable = lib.mkDefault true;
+  boot.loader.systemd-boot.memtest86.enable = true;
   boot.loader.efi.canTouchEfiVariables = lib.mkDefault true;
 
   networking.networkmanager.enable = lib.mkDefault true;
