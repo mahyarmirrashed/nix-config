@@ -20,5 +20,6 @@
     modules.applications.monitoring.processes.default = "btop";
     modules.applications.browsers.firefox.enable = true;
     modules.applications.browsers.default = "firefox";
+    modules.applications.development.enable = true;
   };
 }
