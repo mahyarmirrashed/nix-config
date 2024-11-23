@@ -1,6 +1,7 @@
 { ... }:
 {
   imports = [
+    ./fileManager
     ./wallpaper
     ./windowManager
   ];
