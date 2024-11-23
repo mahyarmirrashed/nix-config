@@ -21,6 +21,8 @@
     modules.applications.development.enable = true;
     modules.applications.terminal.alacritty.enable = true;
     modules.applications.terminal.default = "alacritty";
+    modules.applications.terminal.fetcher.fastfetch.enable = true;
+    modules.applications.terminal.fetcher.default = "fastfetch";
     modules.applications.monitoring.io.iotop-c.enable = true;
     modules.applications.monitoring.processes.btop.enable = true;
     modules.applications.monitoring.processes.htop.enable = true;
