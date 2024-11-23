@@ -5,7 +5,7 @@
   ...
 }:
 let
-  cfg = config.modules.applications.browsers.default;
+  cfg = config.modules.applications.browser.default;
   headless = osConfig.modules.system.headless;
 in
 {
@@ -13,7 +13,7 @@ in
     ./firefox
   ];
 
-  options.modules.applications.browsers.default = lib.mkOption {
+  options.modules.applications.browser.default = lib.mkOption {
     type = lib.types.nullOr lib.types.str;
     default = null;
     description = "The default browser for the system.";
@@ -22,10 +22,10 @@ in
   config.assertions = lib.mkIf (!headless.enable) [
     {
       assertion = cfg != null;
-      message = ''The "modules.applications.browsers.default" option must be defined.'';
+      message = ''The "modules.applications.browser.default" option must be defined.'';
     }
     {
-      assertion = config.modules.applications.browsers.${cfg}.enable;
+      assertion = config.modules.applications.browser.${cfg}.enable;
       message = "The default browser must be enabled.";
     }
   ];

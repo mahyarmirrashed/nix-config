@@ -7,8 +7,8 @@
 let
   cfg = osConfig.modules.desktop.windowManager.hyprland;
 
-  terminal = config.modules.applications.terminals.default;
-  browser = config.modules.applications.browsers.default;
+  terminal = config.modules.applications.terminal.default;
+  browser = config.modules.applications.browser.default;
 in
 {
   wayland.windowManager.hyprland = lib.mkIf cfg.enable {
