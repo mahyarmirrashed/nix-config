@@ -13,6 +13,8 @@
   home-manager.users.mahyar = {
     modules.desktop.fileManager.yazi.enable = true;
     modules.desktop.fileManager.default = "yazi";
+    modules.desktop.launcher.anyrun.enable = true;
+    modules.desktop.launcher.default = "anyrun";
     modules.desktop.wallpaper.hyprpaper.enable = true;
     modules.applications.browser.firefox.enable = true;
     modules.applications.browser.default = "firefox";
