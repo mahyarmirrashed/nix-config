@@ -6,7 +6,6 @@
 }:
 let
   cfg = config.modules.virtualisation;
-
   headless = config.modules.system.headless;
 in
 {
