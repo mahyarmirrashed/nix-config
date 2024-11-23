@@ -5,7 +5,7 @@
   ...
 }:
 let
-  cfg = config.modules.applications.terminal.fetch.default;
+  cfg = config.modules.applications.terminal.fetcher.default;
   headless = osConfig.modules.system.headless;
 in
 {
@@ -13,7 +13,7 @@ in
     ./fastfetch
   ];
 
-  options.modules.applications.terminal.fetch.default = lib.mkOption {
+  options.modules.applications.terminal.fetcher.default = lib.mkOption {
     type = lib.types.nullOr lib.types.str;
     default = null;
     description = "The default terminal fetcher for the system.";
@@ -22,10 +22,10 @@ in
   config.assertions = lib.mkIf (!headless.enable) [
     {
       assertion = cfg != null;
-      message = ''The "modules.applications.terminal.fetch.default" option must be defined.'';
+      message = ''The "modules.applications.terminal.fetcher.default" option must be defined.'';
     }
     {
-      assertion = config.modules.applications.terminal.fetch.${cfg}.enable;
+      assertion = config.modules.applications.terminal.fetcher.${cfg}.enable;
       message = "The default terminal fetcher must be enabled.";
     }
   ];

@@ -12,7 +12,7 @@ in
   imports = [
     ./alacritty
 
-    ./fetch
+    ./fetcher
   ];
 
   options.modules.applications.terminal.default = lib.mkOption {
