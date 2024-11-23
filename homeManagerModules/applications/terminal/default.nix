@@ -11,6 +11,8 @@ in
 {
   imports = [
     ./alacritty
+
+    ./fetch
   ];
 
   options.modules.applications.terminal.default = lib.mkOption {
