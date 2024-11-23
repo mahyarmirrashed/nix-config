@@ -15,6 +15,8 @@
     modules.desktop.fileManager.default = "yazi";
     modules.desktop.launcher.anyrun.enable = true;
     modules.desktop.launcher.default = "anyrun";
+    modules.desktop.locker.hyprlock.enable = true;
+    modules.desktop.locker.default = "hyprlock";
     modules.desktop.wallpaper.hyprpaper.enable = true;
     modules.applications.browser.firefox.enable = true;
     modules.applications.browser.default = "firefox";
