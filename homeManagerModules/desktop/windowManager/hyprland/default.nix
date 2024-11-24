@@ -9,6 +9,7 @@ let
 
   browser = config.modules.applications.browser.default;
   terminal = config.modules.applications.terminal.default;
+  launcher = config.modules.desktop.launcher.default;
   locker = config.modules.desktop.locker.default;
 in
 {
@@ -24,6 +25,7 @@ in
       "$terminal" = terminal;
       "$browser" = browser;
       "$locker" = locker;
+      "$launcher" = launcher;
 
       exec-once = [ "hyprpaper" ];
 
@@ -49,6 +51,7 @@ in
         "$mod, E, Open browser, exec, $browser"
         "$mod, W, Close current window, killactive,"
         "$mod, L, Lock computer, exec, $locker"
+        "$mod, space, Open launcher, exec, $launcher"
       ];
     };
   };
