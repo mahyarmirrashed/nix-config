@@ -21,10 +21,7 @@ in
       "$browser" = browser;
       "$locker" = locker;
 
-      exec-once = [
-        "hyprpaper"
-        "${locker}"
-      ];
+      exec-once = [ "hyprpaper" ];
 
       # XXX: remove after configurations
       debug = {
