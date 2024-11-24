@@ -6,3 +6,5 @@
 - [ ] Refactor modules and make custom function in library to create these
       modules (headless and headful).
 - [ ] [Starship](https://starship.rs) for customizing shell.
+- [ ] Add [`impermanence`](https://github.com/nix-community/impermanence) for
+      [erasing on startup](https://grahamc.com/blog/erase-your-darlings/).
