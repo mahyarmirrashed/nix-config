@@ -5,3 +5,4 @@
       is merged.
 - [ ] Refactor modules and make custom function in library to create these
       modules (headless and headful).
+- [ ] [Starship](https://starship.rs) for customizing shell.
