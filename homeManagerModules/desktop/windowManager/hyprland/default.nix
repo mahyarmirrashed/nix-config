@@ -21,7 +21,7 @@ in
     enable = true;
 
     settings = {
-      "$mod" = "SUPER";
+      "$mod" = lib.mkDefault "Super_L";
       "$terminal" = terminal;
       "$browser" = browser;
       "$locker" = locker;
