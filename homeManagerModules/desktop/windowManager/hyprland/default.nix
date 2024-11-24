@@ -26,6 +26,11 @@ in
         "${locker}"
       ];
 
+      # XXX: remove after configurations
+      debug = {
+        disable_logs = false;
+      };
+
       input = {
         touchpad = {
           natural_scroll = true;
