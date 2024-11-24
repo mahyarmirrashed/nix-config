@@ -1,10 +1,9 @@
-{ config, lib, ... }:
+{ lib, osConfig, ... }:
 let
-  cfg = config.modules.desktop.windowManager.hyprland;
+  cfg = osConfig.modules.desktop.windowManager.hyprland;
 in
 {
   config = lib.mkIf cfg.enable {
-
     services.hypridle = {
       enable = true;
 
