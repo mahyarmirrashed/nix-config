@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  pkgs,
   ...
 }:
 let
@@ -11,8 +10,8 @@ in
   options.modules.desktop.locker.hyprlock.enable = lib.mkEnableOption "hyprlock";
 
   config = lib.mkIf cfg.enable {
-    home.packages = with pkgs; [
-      hyprlock
-    ];
+    programs.hyprlock.enable = true;
+
+    security.pam.services.hyprlock = { };
   };
 }
