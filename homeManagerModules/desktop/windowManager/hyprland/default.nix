@@ -24,8 +24,8 @@ in
       "$mod" = lib.mkDefault "Super_L";
       "$terminal" = terminal;
       "$browser" = browser;
-      "$locker" = locker;
       "$launcher" = launcher;
+      "$locker" = locker;
 
       exec-once = [ "hyprpaper" ];
 
