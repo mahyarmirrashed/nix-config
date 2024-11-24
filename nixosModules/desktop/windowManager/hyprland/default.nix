@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }:
 let
@@ -11,6 +12,10 @@ in
 
   config = lib.mkIf cfg.enable {
     programs.hyprland.enable = true;
+
+    environment.systemPackages = with pkgs; [
+      brightnessctl
+    ];
 
     environment.sessionVariables = {
       NIXOS_OZONE_WL = "1";
