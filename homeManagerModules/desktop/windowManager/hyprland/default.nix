@@ -12,6 +12,10 @@ let
   locker = config.modules.desktop.locker.default;
 in
 {
+  imports = [
+    ./utilities
+  ];
+
   wayland.windowManager.hyprland = lib.mkIf cfg.enable {
     enable = true;
 

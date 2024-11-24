@@ -8,10 +8,6 @@ let
   cfg = config.modules.desktop.windowManager.hyprland;
 in
 {
-  imports = [
-    ./utilities
-  ];
-
   options.modules.desktop.windowManager.hyprland.enable = lib.mkEnableOption "hyprland";
 
   config = lib.mkIf cfg.enable {
