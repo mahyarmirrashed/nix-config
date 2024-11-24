@@ -14,6 +14,9 @@ in
     home.packages = with pkgs; [
       git
       jj
+
+      lazygit
+      lazyjj
     ];
   };
 }
