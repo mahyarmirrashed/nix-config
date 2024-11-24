@@ -1,6 +1,7 @@
 { ... }:
 {
   imports = [
+    ./locker
     ./loginManager
     ./windowManager
   ];
