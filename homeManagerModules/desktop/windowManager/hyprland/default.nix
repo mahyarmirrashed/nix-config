@@ -23,7 +23,7 @@ in
 
       exec-once = [
         "hyprpaper"
-        "$locker"
+        "${locker}"
       ];
 
       input = {
