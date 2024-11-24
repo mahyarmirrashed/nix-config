@@ -10,8 +10,7 @@ let
 in
 {
   imports = [
-    ./anyrun
-    ./rofi
+    ./hyprlock
   ];
 
   options.modules.desktop.locker.default = lib.mkOption {
