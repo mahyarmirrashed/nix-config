@@ -7,8 +7,9 @@
 let
   cfg = osConfig.modules.desktop.windowManager.hyprland;
 
-  terminal = config.modules.applications.terminal.default;
   browser = config.modules.applications.browser.default;
+  terminal = config.modules.applications.terminal.default;
+  locker = config.modules.desktop.locker.default;
 in
 {
   wayland.windowManager.hyprland = lib.mkIf cfg.enable {
@@ -18,6 +19,7 @@ in
       "$mod" = "SUPER";
       "$terminal" = terminal;
       "$browser" = browser;
+      "$locker" = locker;
 
       exec-once = [ "hyprpaper" ];
 
@@ -37,6 +39,7 @@ in
         "$mod, grave, Open terminal, exec, $terminal"
         "$mod, E, Open browser, exec, $browser"
         "$mod, W, Close current window, killactive,"
+        "$mod, L, Lock computer, exec, $locker"
       ];
     };
   };
