@@ -11,6 +11,8 @@
   };
 
   home-manager.users.mahyar = {
+    wayland.windowManager.hyprland.settings."$mod" = "Alt_L";
+
     modules.desktop.fileManager.yazi.enable = true;
     modules.desktop.fileManager.default = "yazi";
     modules.desktop.launcher.anyrun.enable = true;
