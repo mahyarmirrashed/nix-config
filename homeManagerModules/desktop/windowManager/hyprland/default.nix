@@ -21,7 +21,10 @@ in
       "$browser" = browser;
       "$locker" = locker;
 
-      exec-once = [ "hyprpaper" ];
+      exec-once = [
+        "hyprpaper"
+        "$locker"
+      ];
 
       input = {
         touchpad = {
