@@ -4,7 +4,6 @@
     ./fileManager
     ./launcher
     ./locker
-    ./wallpaper
     ./windowManager
   ];
 }
