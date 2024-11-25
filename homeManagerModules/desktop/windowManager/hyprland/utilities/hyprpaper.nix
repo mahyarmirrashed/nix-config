@@ -14,7 +14,7 @@
         "${custom.wallpapers.gruvbox.space}"
       ];
 
-      wallpaper = [ ",${custom.wallpapers.gruvbox.space}" ];
+      wallpaper = [ ",${custom.wallpapers.default}" ];
     };
   };
 }
