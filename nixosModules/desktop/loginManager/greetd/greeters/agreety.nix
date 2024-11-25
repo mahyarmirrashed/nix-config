@@ -2,13 +2,11 @@
   config,
   lib,
   pkgs,
-  custom,
   ...
 }:
 let
   cfg = config.modules.desktop.loginManager.greetd.agreety;
-
-  windowManagerPath = custom.utils.windowManager.getExePath config.modules.desktop.windowManager;
+  entrypoint = config.modules.desktop.loginManager.greetd.entrypoint;
 in
 {
   options.modules.desktop.loginManager.greetd.agreety.enable = lib.mkEnableOption "agreety";
@@ -16,7 +14,7 @@ in
   config = lib.mkIf cfg.enable {
     services.greetd.settings.default_session.command = ''
       ${lib.meta.getExe' pkgs.greetd.greetd "agreety"} \
-      --cmd ${windowManagerPath}
+      --cmd ${lib.meta.getExe entrypoint}
     '';
   };
 }

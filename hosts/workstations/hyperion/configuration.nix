@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 {
   imports = [
     ./disk-configuration.nix
@@ -12,6 +12,7 @@
 
   modules.desktop.loginManager.greetd.enable = true;
   modules.desktop.loginManager.greetd.tuigreet.enable = true;
+  modules.desktop.loginManager.greetd.entrypoint = pkgs.hyprland;
   modules.desktop.windowManager.hyprland.enable = true;
   modules.desktop.locker.hyprlock.enable = true;
   modules.virtualisation.enable = true;

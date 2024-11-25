@@ -1,16 +1,11 @@
 {
   config,
   lib,
-  custom,
+  pkgs,
   ...
 }:
 let
   cfg = config.modules.desktop.loginManager.greetd;
-
-  enabledCount = custom.lists.countTrue [
-    cfg.agreety.enable
-    cfg.tuigreet.enable
-  ];
 in
 {
   imports = [
@@ -19,6 +14,9 @@ in
   ];
 
   options.modules.desktop.loginManager.greetd.enable = lib.mkEnableOption "greetd";
+  options.modules.desktop.loginManager.greetd.entrypoint =
+    lib.mkPackageOption pkgs "bashInteractive"
+      { };
 
   config = lib.mkIf cfg.enable {
     services.greetd.enable = true;
@@ -37,16 +35,5 @@ in
       isSystemUser = true;
       description = "User for greetd.";
     };
-
-    assertions = [
-      {
-        assertion = enabledCount > 0;
-        message = "No greeter is enabled for greetd.";
-      }
-      {
-        assertion = enabledCount < 2;
-        message = "More than one greeter is enabled for greetd.";
-      }
-    ];
   };
 }

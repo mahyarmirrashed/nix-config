@@ -16,7 +16,6 @@ in
       jj
 
       lazygit
-      lazyjj
     ];
   };
 }

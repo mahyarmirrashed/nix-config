@@ -2,13 +2,11 @@
   config,
   lib,
   pkgs,
-  custom,
   ...
 }:
 let
   cfg = config.modules.desktop.loginManager.greetd.tuigreet;
-
-  windowManagerPath = custom.utils.windowManager.getExePath config.modules.desktop.windowManager;
+  entrypoint = config.modules.desktop.loginManager.greetd.entrypoint;
 in
 {
   options.modules.desktop.loginManager.greetd.tuigreet.enable = lib.mkEnableOption "tuigreet";
@@ -23,7 +21,7 @@ in
       --theme "text=white;time=yellow;border=magenta;prompt=lightgreen;input=white;action=blue;button=yellow;" \
       --asterisks \
       --window-padding 2 \
-      --cmd ${windowManagerPath}
+      --cmd ${lib.meta.getExe entrypoint}
     '';
   };
 }
