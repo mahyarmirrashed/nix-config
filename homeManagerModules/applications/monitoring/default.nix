@@ -1,7 +1,8 @@
 { ... }:
 {
   imports = [
-    ./io
-    ./processes
+    ./btop
+    ./htop
+    ./iotop-c
   ];
 }
