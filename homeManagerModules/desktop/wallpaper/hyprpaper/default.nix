@@ -1,5 +1,6 @@
 {
   config,
+  custom,
   lib,
   ...
 }:
@@ -15,13 +16,10 @@ in
 
       settings = {
         preload = [
-          "${../wallpapers/gruvbox/breeze.png}"
-          "${../wallpapers/gruvbox/eden.png}"
-          "${../wallpapers/gruvbox/rust.png}"
-          "${../wallpapers/gruvbox/space.png}"
+          "${custom.wallpapers.gruvbox.index.breeze}"
         ];
 
-        wallpaper = [ ",${../wallpapers/gruvbox/space.png}" ];
+        wallpaper = [ ",${custom.wallpapers.gruvbox.index.breeze}" ];
       };
     };
   };

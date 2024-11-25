@@ -12,6 +12,9 @@
 
     haumea.url = "github:nix-community/haumea/v0.2.2";
     haumea.inputs.nixpkgs.follows = "nixpkgs";
+
+    stylix.url = "github:danth/stylix/release-24.05";
+    stylix.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
@@ -20,6 +23,7 @@
       disko,
       home-manager,
       haumea,
+      stylix,
       ...
     }:
     let
@@ -34,16 +38,15 @@
         system:
         haumea.lib.load {
           src = ./lib;
-          inputs = {
-            lib = nixpkgs.lib;
+          inputs = rec {
             pkgs = nixpkgs.legacyPackages.${system};
+            lib = pkgs.lib;
           };
         };
 
       mkHost = path: system: {
         name = builtins.baseNameOf path;
-        value = nixpkgs.lib.nixosSystem {
-          inherit system;
+        value = nixpkgs.lib.nixosSystem rec {
           modules = [
             # Host-specific (including disk) configuration
             ./hosts/${path}
@@ -53,6 +56,9 @@
             # Home Manager configuration
             ./homeManagerModules
             home-manager.nixosModules.home-manager
+            { home-manager.extraSpecialArgs = specialArgs; }
+            # Miscellaneous
+            stylix.nixosModules.stylix
           ];
           specialArgs = {
             custom = custom system;
@@ -69,7 +75,7 @@
         home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.${system};
           modules = [ ./homeManagerModules ];
-          specialArgs = {
+          extraSpecialArgs = {
             custom = custom system;
           };
         }
