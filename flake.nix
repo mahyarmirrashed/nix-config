@@ -34,17 +34,18 @@
       ];
       forEachSystem = nixpkgs.lib.genAttrs supportedSystems;
 
-      custom =
-        system:
-        haumea.lib.load {
-          src = ./lib;
-          inputs = rec {
-            pkgs = nixpkgs.legacyPackages.${system};
-            lib = pkgs.lib;
-          };
+      custom = haumea.lib.load {
+        src = ./lib;
+        loader = [
+          (haumea.lib.matchers.nix haumea.lib.loaders.scoped)
+          (haumea.lib.matchers.extension "png" haumea.lib.loaders.path)
+        ];
+        inputs = {
+          inherit (nixpkgs) lib;
         };
+      };
 
-      mkHost = path: system: {
+      mkHost = path: {
         name = builtins.baseNameOf path;
         value = nixpkgs.lib.nixosSystem rec {
           modules = [
@@ -61,7 +62,7 @@
             stylix.nixosModules.stylix
           ];
           specialArgs = {
-            custom = custom system;
+            inherit custom;
           };
         };
       };
@@ -76,14 +77,14 @@
           pkgs = nixpkgs.legacyPackages.${system};
           modules = [ ./homeManagerModules ];
           extraSpecialArgs = {
-            custom = custom system;
+            inherit custom;
           };
         }
       );
 
       nixosConfigurations = builtins.listToAttrs [
-        (mkHost "workstations/cronos" "x86_64-linux")
-        (mkHost "workstations/hyperion" "x86_64-linux")
+        (mkHost "workstations/cronos")
+        (mkHost "workstations/hyperion")
       ];
     };
 }

@@ -8,13 +8,13 @@
 
     settings = {
       preload = [
-        "${custom.wallpapers.gruvbox.index.breeze}"
-        "${custom.wallpapers.gruvbox.index.eden}"
-        "${custom.wallpapers.gruvbox.index.rust}"
-        "${custom.wallpapers.gruvbox.index.space}"
+        "${custom.wallpapers.gruvbox.breeze}"
+        "${custom.wallpapers.gruvbox.eden}"
+        "${custom.wallpapers.gruvbox.rust}"
+        "${custom.wallpapers.gruvbox.space}"
       ];
 
-      wallpaper = [ ",${custom.wallpapers.gruvbox.index.space}" ];
+      wallpaper = [ ",${custom.wallpapers.gruvbox.space}" ];
     };
   };
 }
