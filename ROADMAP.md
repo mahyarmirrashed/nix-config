@@ -14,8 +14,6 @@
   - [Startpages](https://github.com/PrimaMateria/startpages);
 - [ ] Git;
 - [ ] JJ;
-- [ ] LazyGit;
-- [ ] LazyJJ;
 - [ ] btop;
 - [ ] htop;
 - [ ] iotop;
@@ -52,6 +50,7 @@
     - Normal;
 - [ ] Nvim from scratch;
   - [Kickstart](https://github.com/dam9000/kickstart-modular.nvim);
+  - `yazi.nvim`;
 - [ ] Hyprsome;
 - [ ] `eza` instead of `ls`;
 - [ ] `fzf`;
@@ -78,6 +77,31 @@
 - [ ] Just;
 - [ ] `jq`;
 - [ ] `yq`;
+- [ ] `xq`;
+- [ ] `fd`;
+- [ ] `fx`;
+- [ ] `lazydocker`;
+- [ ] `lazygit`;
+- [ ] `lazyjj`;
+- [ ] `gh`;
+- [ ] `watchman`;
+- [ ] `ergo`;
+- [ ] Obsidian;
+- [ ] `ticker`;
+- [ ] `slides`;
+- [ ] `fselect`;
+- [ ] `just`;
+- [ ] `rare`;
+- [ ] `pastel`;
+- [ ] `pipes`;
+- [ ] `asciicinema`;
+- [ ] `cloc`;
+- [ ] Tailscale;
+- [ ] System monitoring with `sar`;
+- [ ] `typst`;
+- [ ] `delta`;
+- [ ] `bat`;
+- [ ] `zoxide`;
 
 ## Useful References
 
