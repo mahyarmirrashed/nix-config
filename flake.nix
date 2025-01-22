@@ -68,7 +68,6 @@
       };
     in
     {
-      packages = forEachSystem (system: import ./pkgs { pkgs = nixpkgs.legacyPackages.${system}; });
       formatter = forEachSystem (system: nixpkgs.legacyPackages.${system}.nixfmt-rfc-style);
 
       homeConfigurations = forEachSystem (
