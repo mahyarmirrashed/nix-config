@@ -25,7 +25,7 @@ in
       };
     };
 
-    wayland.windowManager.hyprland = lib.mkIf (!headless.enable) {
+    wayland.windowManager.hyprland = {
       enable = true;
 
       settings = {
