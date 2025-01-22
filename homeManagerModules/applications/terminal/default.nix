@@ -9,11 +9,13 @@ let
   headless = osConfig.modules.system.headless;
 in
 {
-  config = lib.mkIf headless.enable {
-    home.packages = with pkgs; [
-      alacritty
-      fastfetch
-    ];
+  config = {
+    home.packages =
+      with pkgs;
+      [
+        fastfetch
+      ]
+      ++ lib.optionals (!headless.enable) [ alacritty ];
   };
 
   options.modules.applications.terminal.default = lib.mkOption {
