@@ -10,10 +10,7 @@
 
   system.stateVersion = "24.05";
 
-  modules.desktop.loginManager.greetd.enable = true;
-  modules.desktop.loginManager.greetd.tuigreet.enable = true;
-  modules.desktop.loginManager.greetd.entrypoint = pkgs.hyprland;
-  modules.desktop.windowManager.hyprland.enable = true;
-  modules.desktop.locker.hyprlock.enable = true;
+  modules.desktop.loginManager.tuigreet.enable = true;
+  modules.desktop.loginManager.entrypoint = pkgs.hyprland;
   modules.virtualisation.enable = true;
 }

@@ -5,7 +5,7 @@
   ...
 }:
 let
-  headless = config.modules.system.headless.enable;
+  headless = config.modules.system.headless;
 in
 {
   config = lib.mkIf (!headless.enable) {

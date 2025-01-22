@@ -5,11 +5,11 @@
   ...
 }:
 let
-  cfg = config.modules.desktop.loginManager.greetd.tuigreet;
-  entrypoint = config.modules.desktop.loginManager.greetd.entrypoint;
+  cfg = config.modules.desktop.loginManager.tuigreet;
+  entrypoint = config.modules.desktop.loginManager.entrypoint;
 in
 {
-  options.modules.desktop.loginManager.greetd.tuigreet.enable = lib.mkEnableOption "tuigreet";
+  options.modules.desktop.loginManager.tuigreet.enable = lib.mkEnableOption "tuigreet";
 
   config = lib.mkIf cfg.enable {
     services.greetd.settings.default_session.command = ''
