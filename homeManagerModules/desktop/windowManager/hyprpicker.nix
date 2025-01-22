@@ -5,10 +5,10 @@
   ...
 }:
 let
-  cfg = osConfig.modules.desktop.windowManager.hyprland;
+  headless = osConfig.modules.system.headless;
 in
 {
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf (!headless.enable) {
     home.packages = with pkgs; [
       hyprpicker
     ];

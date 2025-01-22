@@ -13,7 +13,9 @@ let
 in
 {
   imports = [
-    ./utilities
+    ./hypridle.nix
+    ./hyprpaper.nix
+    ./hyprpicker.nix
   ];
 
   config = lib.mkIf (!headless.enable) {

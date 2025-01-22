@@ -1,9 +1,14 @@
 {
   custom,
+  lib,
+  osConfig,
   ...
 }:
+let
+  headless = osConfig.modules.system.headless;
+in
 {
-  services.hyprpaper = {
+  services.hyprpaper = lib.mkIf (!headless.enable) {
     enable = true;
 
     settings = {
