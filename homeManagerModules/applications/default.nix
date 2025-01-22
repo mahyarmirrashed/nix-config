@@ -1,7 +1,7 @@
 { ... }:
 {
   imports = [
-    ./browser
+    ./browsers
     ./development
     ./monitoring
     ./terminal
