@@ -16,5 +16,8 @@ in
     ];
   };
 
-  options.modules.desktop.launcher.default = lib.mkDefault "anyrun";
+  options.modules.desktop.launcher.default = lib.mkOption {
+    default = "anyrun";
+    type = lib.types.str;
+  };
 }

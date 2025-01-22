@@ -15,5 +15,8 @@ in
     ];
   };
 
-  options.modules.applications.browser.default = lib.mkDefault "firefox";
+  options.modules.applications.browser.default = lib.mkOption {
+    default = "firefox";
+    type = lib.types.str;
+  };
 }
