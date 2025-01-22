@@ -2,33 +2,20 @@
   config,
   lib,
   osConfig,
+  pkgs,
   ...
 }:
 let
-  cfg = config.modules.applications.terminal.default;
   headless = osConfig.modules.system.headless;
 in
 {
-  imports = [
-    ./alacritty
-
-    ./fetcher
-  ];
-
-  options.modules.applications.terminal.default = lib.mkOption {
-    type = lib.types.nullOr lib.types.str;
-    default = null;
-    description = "The default terminal emulator for the system.";
+  config = lib.mkIf headless.enable {
+    home.packages = with pkgs; [
+      alacritty
+      fastfetch
+    ];
   };
 
-  config.assertions = lib.mkIf (!headless.enable) [
-    {
-      assertion = cfg != null;
-      message = ''The "modules.applications.terminal.default" option must be defined.'';
-    }
-    {
-      assertion = config.modules.applications.terminal.${cfg}.enable;
-      message = "The default terminal must be enabled.";
-    }
-  ];
+  options.modules.applications.terminal.default = lib.mkDefault "alacritty";
+  options.modules.applications.terminal.fetcher.default = lib.mkDefault "fastfetch";
 }
