@@ -54,6 +54,9 @@ in
           "$mod, W, Close current window, killactive,"
           "$mod, L, Lock computer, exec, $locker"
           "$mod, space, Open launcher, exec, $launcher"
+
+          ", XF86MonBrightnessUp, Increase brightness slightly, exec, brightnessctl set +5%"
+          ", XF86MonBrightnessDown, Decrease brightness slightly, exec, brightnessctl set 5%-"
         ];
       };
     };
