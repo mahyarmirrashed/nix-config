@@ -19,12 +19,6 @@ in
   ];
 
   config = lib.mkIf (!headless.enable) {
-    programs.hyprlock.settings = {
-      general = {
-        disable_loading_bar = true;
-      };
-    };
-
     wayland.windowManager.hyprland = {
       enable = true;
 
