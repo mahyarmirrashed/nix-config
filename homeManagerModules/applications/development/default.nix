@@ -13,5 +13,9 @@
       neovim
       lazygit
     ];
+
+    programs.neovim = {
+      defaultEditor = true;
+    };
   };
 }
