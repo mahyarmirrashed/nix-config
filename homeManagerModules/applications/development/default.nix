@@ -8,6 +8,7 @@
   config = {
     home.packages = with pkgs; [
       git
+      gh
       jj
 
       neovim
