@@ -10,6 +10,12 @@
       jujutsu
       lazygit
       neovim
+
+      clipboard-jh
+      gcc
+      gnumake
+      ripgrep
+      unzip
     ];
 
     programs.git = {
