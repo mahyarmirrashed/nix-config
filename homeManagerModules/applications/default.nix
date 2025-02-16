@@ -1,4 +1,9 @@
-{ ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 {
   imports = [
     ./browsers
@@ -6,4 +11,10 @@
     ./monitoring
     ./terminal
   ];
+
+  config = {
+    home.packages = with pkgs; [
+      element-desktop
+    ];
+  };
 }
