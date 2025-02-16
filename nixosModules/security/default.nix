@@ -1,4 +1,4 @@
 { ... }:
 {
-  imports = [ ./pam.nix ];
+  security.pam.enable = true;
 }
