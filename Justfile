@@ -5,3 +5,7 @@ check:
 # Format configuration.
 fmt:
   nix fmt **.nix
+
+# Rebuild and switch into the new generation.
+rebuild:
+  nixos-rebuild switch
