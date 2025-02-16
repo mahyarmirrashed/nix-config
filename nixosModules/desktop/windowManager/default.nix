@@ -14,6 +14,7 @@ in
     environment.systemPackages = with pkgs; [
       brightnessctl
       playerctl
+      libinput-gestures
     ];
 
     environment.sessionVariables = {
