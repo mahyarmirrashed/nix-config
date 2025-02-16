@@ -11,6 +11,7 @@
       lazygit
       neovim
       tmux
+      just
 
       clipboard-jh
       gcc
