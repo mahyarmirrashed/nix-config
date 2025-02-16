@@ -19,11 +19,6 @@ in
   ];
 
   config = lib.mkIf (!headless.enable) {
-    home.file.".config/libinput-gestures.conf".text = ''
-      gesture swipe left  3 hyprctl dispatch workspace e+1
-      gesture swipe right 3 hyprctl dispatch workspace e-1
-    '';
-
     wayland.windowManager.hyprland = {
       enable = true;
 
@@ -45,6 +40,11 @@ in
           touchpad = {
             natural_scroll = true;
           };
+        };
+
+        gestures = {
+          workspace_swipe = true;
+          workspace_swipe_min_fingers = true;
         };
 
         misc = {
