@@ -136,7 +136,7 @@ in
           "$mod, T, Open terminal, exec, $terminal"
           "$mod, grave, Open terminal, exec, $terminal"
           "$mod, E, Open browser, exec, $browser"
-          "$mod, W, Close current window, killactive,"
+          "$mod, Q, Close current window, killactive,"
           "$mod, L, Lock computer, exec, $locker"
           "$mod, space, Open launcher, exec, $launcher"
         ];
