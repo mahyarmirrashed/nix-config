@@ -1,3 +1,3 @@
 # Format configuration.
 fmt:
-  @nix fmt **.nix
+  nix fmt **.nix
