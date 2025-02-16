@@ -24,7 +24,8 @@ in
       XDG_SESSION_TYPE = "wayland";
     };
 
-    systemd.services.libinput-gestures.enable = true;
+    systemd.packages = [ pkgs.libinput-gestures ];
+
     # Specifically allow libinput-gestures access only to touchpad devices
     services.udev.packages = lib.singleton (
       pkgs.writeTextFile {
