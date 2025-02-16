@@ -6,7 +6,6 @@
     ./stylix.nix
 
     ./desktop
-    ./security
     ./users
     ./virtualisation
   ];
