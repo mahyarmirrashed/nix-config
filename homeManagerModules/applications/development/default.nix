@@ -10,6 +10,7 @@
       jujutsu
       lazygit
       neovim
+      tmux
 
       clipboard-jh
       gcc
