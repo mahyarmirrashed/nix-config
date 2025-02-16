@@ -1,7 +1,9 @@
-{ ... }:
 {
-  security.pam.enable = true;
-
+  lib,
+  pkgs,
+  ...
+}:
+{
   services.udev.packages = lib.singleton (
     pkgs.writeTextFile {
       name = "libinput-gestures-udev-rules";
