@@ -21,6 +21,7 @@
 
     programs.git = {
       enable = true;
+      # configurations
       userName = "Mahyar Mirrashed";
       userEmail = "mah.mirr@gmail.com";
 
@@ -53,6 +54,7 @@
 
     programs.gh = {
       enable = true;
+      # configurations
       settings = {
         editor = "nvim";
         git_protocol = "ssh";
@@ -61,6 +63,7 @@
 
     programs.tmux = {
       enable = true;
+      # configurations
       baseIndex = 1;
       clock24 = true;
       keyMode = "vi";
