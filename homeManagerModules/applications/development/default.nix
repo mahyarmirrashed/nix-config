@@ -74,7 +74,7 @@
         tmuxPlugins.weather
       ];
       extraConfig = ''
-        set -g status-right '#{cpu_bg_color} CPU: #{cpu_icon} #{cpu_percentage} | #{weather} | %a %h-%d %H:%M '
+        set -g status-right 'CPU: #{cpu_percentage} | #{weather} | %a, %h %d @ %H:%M '
       '';
     };
   };
