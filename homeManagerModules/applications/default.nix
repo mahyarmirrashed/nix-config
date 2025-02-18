@@ -14,6 +14,7 @@
 
   config = {
     home.packages = with pkgs; [
+      cmatrix
       element-desktop
     ];
   };
