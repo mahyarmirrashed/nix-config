@@ -31,7 +31,7 @@
 - [ ] Hyprsysteminfo;
 - [ ] Hyprcursor;
 - [ ] Hyprpolkit;
-- [ ] [Input gestures](https://www.reddit.com/r/hyprland/comments/12qjea7/additional_gestures/);
+- [x] [Input gestures](https://www.reddit.com/r/hyprland/comments/12qjea7/additional_gestures/);
 - [ ] Mako;
 - [ ] Dunst;
 - [ ] Pipewire;
@@ -49,7 +49,6 @@
     - Terminal;
     - Normal;
 - [ ] Nvim from scratch;
-  - [Kickstart](https://github.com/dam9000/kickstart-modular.nvim);
   - `yazi.nvim`;
 - [ ] Hyprsome;
 - [ ] `eza` instead of `ls`;
