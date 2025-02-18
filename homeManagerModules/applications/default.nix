@@ -8,7 +8,6 @@
   imports = [
     ./browsers
     ./development
-    ./monitoring
     ./terminal
   ];
 
@@ -16,6 +15,10 @@
     home.packages = with pkgs; [
       cmatrix
       element-desktop
+
+      btop
+      htop
+      iotop-c
     ];
   };
 }
