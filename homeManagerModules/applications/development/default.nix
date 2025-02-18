@@ -70,11 +70,11 @@
       terminal = "screen-256color";
 
       plugins = with pkgs; [
+        tmuxPlugins.battery
         tmuxPlugins.cpu
-        tmuxPlugins.weather
       ];
       extraConfig = ''
-        set -g status-right 'CPU: #{cpu_percentage} | #{weather} | %a, %h %d @ %H:%M '
+        set -g status-right 'CPU: #{cpu_percentage} | #{battery_graph} | %a, %h %d @ %H:%M '
       '';
     };
   };
