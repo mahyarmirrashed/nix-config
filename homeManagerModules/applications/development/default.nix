@@ -10,7 +10,6 @@
       jujutsu
       lazygit
       neovim
-      tmux
       just
 
       clipboard-jh
@@ -58,6 +57,14 @@
         editor = "nvim";
         git_protocol = "ssh";
       };
+    };
+
+    programs.tmux = {
+      enable = true;
+      baseIndex = 1;
+      clock24 = true;
+      keyMode = "vi";
+      terminal = "screen-256color";
     };
   };
 }
