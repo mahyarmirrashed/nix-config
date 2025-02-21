@@ -16,6 +16,7 @@
       cmatrix
       discordo
       element-desktop
+      oo7
 
       btop
       htop
