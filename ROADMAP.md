@@ -10,6 +10,7 @@
 
 ## Packages to Install/Configure
 
+- [ ] Upower;
 - [ ] Firefox;
   - [Startpages](https://github.com/PrimaMateria/startpages);
 - [ ] Git;
