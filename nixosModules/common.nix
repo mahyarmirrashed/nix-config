@@ -1,5 +1,6 @@
 { lib, pkgs, ... }:
 {
+  boot.initrd.systemd.dbus.enable = true;
   boot.loader.systemd-boot.editor = false;
   boot.loader.systemd-boot.enable = lib.mkDefault true;
   boot.loader.systemd-boot.memtest86.enable = true;
