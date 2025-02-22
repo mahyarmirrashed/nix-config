@@ -24,4 +24,6 @@
     git
     tree
   ];
+
+  security.rtkit.enable = true;
 }
