@@ -16,6 +16,7 @@
       cmatrix
       discordo
       element-desktop
+      gomuks
       oo7
 
       btop
