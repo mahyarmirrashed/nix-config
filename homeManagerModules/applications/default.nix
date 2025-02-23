@@ -18,6 +18,7 @@
       element-desktop
       gomuks
       oo7
+      pipes
 
       btop
       htop
