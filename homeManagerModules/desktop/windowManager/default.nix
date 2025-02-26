@@ -36,6 +36,11 @@ in
           disable_logs = false;
         };
 
+        general = {
+          gaps_in = 0;
+          gaps_out = 0;
+        };
+
         input = {
           touchpad = {
             natural_scroll = true;
