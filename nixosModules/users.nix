@@ -1,4 +1,8 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  ...
+}:
 let
   defaultUserConfig = {
     createHome = lib.mkDefault true;
@@ -11,7 +15,7 @@ in
   options.modules.users = lib.mkOption {
     type = lib.types.listOf lib.types.str;
     default = [ "mahyar" ];
-    description = "List of system users to configure. 'mahyar' will always to be included.";
+    description = "List of system users to configure. 'mahyar' will always be included.";
   };
 
   config.users.users = lib.genAttrs cfg (_: defaultUserConfig);

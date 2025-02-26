@@ -4,10 +4,10 @@
     ./common.nix
     ./options.nix
     ./stylix.nix
+    ./users.nix
+    ./virtualisation.nix
 
     ./desktop
-    ./users
-    ./virtualisation
   ];
 
   nixpkgs.config.permittedInsecurePackages = [
