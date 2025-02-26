@@ -41,6 +41,10 @@ in
           gaps_out = 0;
         };
 
+        animations = {
+          enabled = false;
+        };
+
         input = {
           touchpad = {
             natural_scroll = true;
