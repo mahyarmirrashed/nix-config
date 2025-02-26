@@ -2,6 +2,7 @@
 {
   imports = [
     ./common.nix
+    ./networking.nix
     ./options.nix
     ./stylix.nix
     ./users.nix
