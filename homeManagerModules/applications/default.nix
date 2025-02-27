@@ -24,5 +24,9 @@
       htop
       iotop-c
     ];
+
+    systemd.user.services = with pkgs; [
+      oo7
+    ];
   };
 }
