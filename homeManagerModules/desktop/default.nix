@@ -1,8 +1,9 @@
 { ... }:
 {
   imports = [
-    ./fileManager
-    ./launcher
     ./windowManager
+
+    ./fileManager.nix
+    ./launcher.nix
   ];
 }

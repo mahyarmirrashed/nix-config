@@ -6,9 +6,9 @@
 }:
 {
   imports = [
-    ./browsers
-    ./development
-    ./terminal
+    ./browsers.nix
+    ./development.nix
+    ./terminal.nix
   ];
 
   config = {
