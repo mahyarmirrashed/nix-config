@@ -67,7 +67,6 @@
       baseIndex = 1;
       clock24 = true;
       keyMode = "vi";
-      shortcut = "a";
       terminal = "screen-256color";
 
       plugins = with pkgs; [
