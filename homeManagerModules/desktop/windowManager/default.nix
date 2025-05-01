@@ -56,7 +56,7 @@ in
             clickfinger_behavior = true;
           };
 
-          touchdevicce = {
+          touchdevice = {
             enabled = false;
           };
         };
