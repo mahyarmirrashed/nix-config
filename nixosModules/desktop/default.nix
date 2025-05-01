@@ -1,9 +1,10 @@
 { ... }:
 {
   imports = [
-    ./audio
     ./locker
     ./loginManager
     ./windowManager
+
+    ./audio.nix
   ];
 }
