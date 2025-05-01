@@ -7,7 +7,6 @@
 {
   config = {
     home.packages = with pkgs; [
-      jujutsu
       lazygit
       neovim
       just
