@@ -42,7 +42,7 @@ in
           layout = "master";
         };
 
-        decorations = {
+        decoration = {
           inactive_opacity = 0.8;
         };
 
