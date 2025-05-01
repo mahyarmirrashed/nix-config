@@ -15,6 +15,8 @@
 
     stylix.url = "github:danth/stylix/release-24.11";
     stylix.inputs.nixpkgs.follows = "nixpkgs";
+
+    flake-utils.url = "github:numtide/flake-utils";
   };
 
   outputs =
@@ -24,16 +26,10 @@
       home-manager,
       haumea,
       stylix,
+      flake-utils,
       ...
-    }:
+    }@inputs:
     let
-      supportedSystems = [
-        "aarch64-darwin"
-        "aarch64-linux"
-        "x86_64-linux"
-      ];
-      forEachSystem = nixpkgs.lib.genAttrs supportedSystems;
-
       custom = haumea.lib.load {
         src = ./lib;
         loader = [
@@ -67,20 +63,24 @@
         };
       };
     in
-    {
-      formatter = forEachSystem (system: nixpkgs.legacyPackages.${system}.nixfmt-tree);
+    flake-utils.lib.eachDefaultSystem (
+      system:
+      let
+        pkgs = nixpkgs.legacyPackages.${system};
+      in
+      {
+        formatter = pkgs.nixfmt-rfc-style;
 
-      homeConfigurations = forEachSystem (
-        system:
-        home-manager.lib.homeManagerConfiguration {
+        homeConfigurations = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.${system};
           modules = [ ./homeManagerModules ];
           extraSpecialArgs = {
             inherit custom;
           };
-        }
-      );
-
+        };
+      }
+    )
+    // {
       nixosConfigurations = builtins.listToAttrs [
         (mkHost "workstations/cronos")
         (mkHost "workstations/hyperion")
