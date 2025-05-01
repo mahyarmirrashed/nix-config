@@ -51,6 +51,10 @@ in
             natural_scroll = true;
             clickfinger_behavior = true;
           };
+
+          touchdevicce = {
+            enabled = false;
+          };
         };
 
         gestures = {
