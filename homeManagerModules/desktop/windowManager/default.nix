@@ -42,6 +42,10 @@ in
           layout = "master";
         };
 
+        decorations = {
+          inactive_opacity = 0.8;
+        };
+
         animations = {
           enabled = false;
         };
