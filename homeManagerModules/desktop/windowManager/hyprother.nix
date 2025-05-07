@@ -11,6 +11,7 @@ in
   config = lib.mkIf (!headless.enable) {
     home.packages = with pkgs; [
       hyprpicker
+      hyprshot
     ];
   };
 }

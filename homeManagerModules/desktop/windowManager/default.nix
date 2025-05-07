@@ -14,8 +14,8 @@ in
 {
   imports = [
     ./hypridle.nix
+    ./hyprother.nix
     ./hyprpaper.nix
-    ./hyprpicker.nix
   ];
 
   config = lib.mkIf (!headless.enable) {
@@ -154,6 +154,11 @@ in
           "$mod, Q, Close current window, killactive,"
           "$mod, L, Lock computer, exec, $locker"
           "$mod, space, Open launcher, exec, $launcher"
+          # screenshot
+          "$mod, S, Capture full screen (clipboard), exec, hyprshot -m output --clipboard-only"
+          "$mod SHIFT, S, Capture region (clipboard), exec, hyprshot -m region --clipboard-only"
+          "$mod ALT, S, Capture active window (clipboard), exec, hyprshot -m window --clipboard-only"
+          "$mod CTRL, S, Capture full screen (save), exec, hyprshot -m output"
         ];
       };
     };
