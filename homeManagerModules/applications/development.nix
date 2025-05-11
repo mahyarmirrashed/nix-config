@@ -8,6 +8,7 @@
   config = {
     home.packages = with pkgs; [
       direnv
+      lazydocker
       lazygit
       just
 
