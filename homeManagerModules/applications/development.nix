@@ -9,7 +9,6 @@
     home.packages = with pkgs; [
       direnv
       lazygit
-      neovim
       just
 
       clipboard-jh
