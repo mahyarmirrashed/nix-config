@@ -2,6 +2,7 @@
 {
   imports = [
     ./common.nix
+    ./development.nix
     ./networking.nix
     ./options.nix
     ./security.nix

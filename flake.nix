@@ -2,7 +2,7 @@
   description = "Mahyar's Nix configurations.";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     disko.url = "github:nix-community/disko/v1.9.0";
     disko.inputs.nixpkgs.follows = "nixpkgs";
@@ -15,6 +15,9 @@
 
     stylix.url = "github:danth/stylix/release-24.11";
     stylix.inputs.nixpkgs.follows = "nixpkgs";
+
+    zenvim.url = "github:mahyarmirrashed/zenvim";
+    zenvim.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
@@ -24,6 +27,7 @@
       home-manager,
       haumea,
       stylix,
+      zenvim,
       ...
     }:
     let
@@ -60,6 +64,7 @@
             { home-manager.extraSpecialArgs = specialArgs; }
             # Miscellaneous
             stylix.nixosModules.stylix
+            { nixpkgs.overlays = [ zenvim.overlays.default ]; }
           ];
           specialArgs = {
             inherit custom;
