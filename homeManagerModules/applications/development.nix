@@ -11,6 +11,8 @@
       lazydocker
       lazygit
       just
+      opencode
+      claude-code
 
       clipboard-jh
       gcc
