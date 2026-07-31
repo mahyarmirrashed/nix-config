@@ -2,6 +2,7 @@
 {
   imports = [
     ./login-manager.nix
+    ./window-manager.nix
   ];
 
   fonts.packages = [ pkgs.nerd-fonts.jetbrains-mono ];
