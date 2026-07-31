@@ -6,6 +6,9 @@
   boot.loader.systemd-boot.memtest86.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  hardware.bluetooth.enable = true;
+  services.blueman.enable = true;
+
   networking.networkmanager.enable = true;
 
   time.timeZone = lib.mkDefault "Etc/UTC";
