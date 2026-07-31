@@ -7,6 +7,9 @@
     disko.url = "github:nix-community/disko/v1.9.0";
     disko.inputs.nixpkgs.follows = "nixpkgs";
 
+    stylix.url = "github:danth/stylix/release-26.05";
+    stylix.inputs.nixpkgs.follows = "nixpkgs";
+
     zenvim.url = "github:mahyarmirrashed/zenvim";
     zenvim.inputs.nixpkgs.follows = "nixpkgs";
   };
@@ -16,6 +19,7 @@
       self,
       nixpkgs,
       disko,
+      stylix,
       zenvim,
       ...
     }:
@@ -36,8 +40,10 @@
             # NixOS modules
             ./nixosModules
             # Miscellaneous
+            stylix.nixosModules.stylix
             { nixpkgs.overlays = [ zenvim.overlays.default ]; }
           ];
+          specialArgs.self = self;
         };
       };
     in

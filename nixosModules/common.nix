@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+{ self, lib, pkgs, ... }:
 {
   boot.initrd.systemd.dbus.enable = true;
   boot.loader.systemd-boot.editor = false;
@@ -25,4 +25,8 @@
   nixpkgs.config.allowUnfree = lib.mkDefault true;
 
   environment.systemPackages = [ pkgs.vim ];
+
+  stylix.enable = true;
+  stylix.image = self + "/lib/wallpapers/gruvbox/space.png";
+  stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
 }
