@@ -1,5 +1,9 @@
 { pkgs, ... }:
 {
+  imports = [
+    ./login-manager.nix
+  ];
+
   fonts.packages = [ pkgs.nerd-fonts.jetbrains-mono ];
 
   powerManagement.enable = true;
