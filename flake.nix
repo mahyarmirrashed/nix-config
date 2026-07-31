@@ -7,6 +7,9 @@
     disko.url = "github:nix-community/disko/v1.9.0";
     disko.inputs.nixpkgs.follows = "nixpkgs";
 
+    home-manager.url = "github:nix-community/home-manager/release-26.05";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
     stylix.url = "github:danth/stylix/release-26.05";
     stylix.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -19,6 +22,7 @@
       self,
       nixpkgs,
       disko,
+      home-manager,
       stylix,
       zenvim,
       ...
@@ -39,6 +43,10 @@
             ./hosts/${path}
             # NixOS modules
             ./nixosModules
+            # Home Manager
+            ./homeManagerModules
+            home-manager.nixosModules.home-manager
+            { home-manager.extraSpecialArgs.self = self; }
             # Miscellaneous
             stylix.nixosModules.stylix
             { nixpkgs.overlays = [ zenvim.overlays.default ]; }
