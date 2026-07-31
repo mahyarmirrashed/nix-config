@@ -1,0 +1,28 @@
+{ lib, pkgs, ... }:
+{
+  boot.initrd.systemd.dbus.enable = true;
+  boot.loader.systemd-boot.editor = false;
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot.memtest86.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+
+  networking.networkmanager.enable = true;
+
+  time.timeZone = lib.mkDefault "Etc/UTC";
+
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 30d";
+  };
+
+  nix.settings.auto-optimise-store = true;
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
+
+  nixpkgs.config.allowUnfree = lib.mkDefault true;
+
+  environment.systemPackages = [ pkgs.vim ];
+}

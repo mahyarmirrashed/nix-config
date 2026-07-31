@@ -6,7 +6,8 @@
   ];
 
   networking.hostName = "hyperion";
-  networking.useDHCP = true;
+
+  time.timeZone = "America/Vancouver";
 
   system.stateVersion = "24.05";
 }
