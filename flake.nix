@@ -6,6 +6,9 @@
 
     disko.url = "github:nix-community/disko/v1.9.0";
     disko.inputs.nixpkgs.follows = "nixpkgs";
+
+    zenvim.url = "github:mahyarmirrashed/zenvim";
+    zenvim.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
@@ -13,6 +16,7 @@
       self,
       nixpkgs,
       disko,
+      zenvim,
       ...
     }:
     let
@@ -31,6 +35,8 @@
             ./hosts/${path}
             # NixOS modules
             ./nixosModules
+            # Miscellaneous
+            { nixpkgs.overlays = [ zenvim.overlays.default ]; }
           ];
         };
       };
