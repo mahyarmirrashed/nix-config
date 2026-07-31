@@ -27,6 +27,10 @@
 
   environment.systemPackages = [ pkgs.vim ];
 
+  security.rtkit.enable = true;
+  services.pipewire.enable = true;
+  services.pipewire.pulse.enable = true;
+
   stylix.enable = true;
   stylix.image = self + "/lib/wallpapers/gruvbox/space.png";
   stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
