@@ -43,6 +43,8 @@
       rebase.updateRefs = true;
 
       rerere.enabled = true;
+
+      safe.directory = [ "/etc/nixos" ];
     };
 
     ignores = [
