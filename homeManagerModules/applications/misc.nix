@@ -4,6 +4,7 @@
   programs.lf.enable = true;
 
   home.packages = with pkgs; [
+    defuddle
     fastfetch
     just
     ripgrep
