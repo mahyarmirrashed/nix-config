@@ -12,7 +12,7 @@
 
       background = [
         {
-          path = "${self}/lib/wallpapers/gruvbox/space.png";
+          path = self + "/lib/wallpapers/gruvbox/eden.png";
           color = "rgba(29, 32, 33, 255)";
           blur_passes = 2;
           vibrancy_darkness = 0.0;

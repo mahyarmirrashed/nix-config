@@ -33,7 +33,7 @@
 
   stylix.enable = true;
   stylix.polarity = "dark";
-  stylix.image = self + "/lib/wallpapers/gruvbox/space.png";
+  stylix.image = self + "/lib/wallpapers/gruvbox/eden.png";
   stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
 
   stylix.fonts.monospace = {
